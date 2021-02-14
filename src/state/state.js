@@ -53,7 +53,7 @@ store.dispatch(newInstructor({ serialNumber: 1, Name: "mike", DepartmentalName: 
 // store.dispatch(editTextBooks("dddd",textBooks,{ISBN:500, Name:"micheal",Id:"",Author:"alex",Time:2000}))
 // store.dispatch(sortTextBooks({sortType:"Date",textBooks}))
 // store.dispatch(removeStudent(filter,student))
-// store.dispatch(removeInstructor("jude",Instructor))
+
   console.log(store.getState())
 
 
