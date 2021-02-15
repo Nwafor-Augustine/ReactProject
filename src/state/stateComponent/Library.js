@@ -1,32 +1,41 @@
+import uuid from 'react-uuid'
+
 // small library  data management
+let id = uuid()
+ 
+
 const textBooks = [
     {
     ISBN: "22333-33",
     Name: "find friends",
-    Id: "0",
+    Id: id,
     Author: "jackspel",
     Time:2001
 }
 ]
 
 
-let addTextBooks = ({ISBN,Name,Id,Author,Time}) => (
+let addTextBooks = ( { ISBN, Name, Author, Time }) => {
     
-    {
+    
+    return {
     type:"ADDTEXTBOOK",
     textBook:{
     ISBN,
     Name,
-    Id,
     Author,
-    Time
+    Time,
+    Id:uuid(),
     }
 }
+}
+   
+    
 
-)
 
-let editTextBooks = (name, textBooks, {ISBN, Name,Id,Author,Time}) => {
 
+let editTextBooks = (bookName, textBooks, {ISBN, Name,Id,Author,Time}) => {
+ 
     return {
         type: "EDITTEXTBOOKS",
         textBooks,
@@ -35,7 +44,7 @@ let editTextBooks = (name, textBooks, {ISBN, Name,Id,Author,Time}) => {
         Id,
         Author,
         Time,
-        name
+        bookName
     }
     
 }
@@ -76,19 +85,29 @@ const bookReducer = (state=textBooks, action) => {
             
         case "EDITTEXTBOOKS":
             
-             let edit = action.textBooks.filter((textbook) => {
-           return textbook.Name === action.name ? true:false; 
-             })
+
             
-            edit[0].ISBN =action.ISBN
-            edit[0].Name = action.Name
-            edit[0].Id = action.Id
-            edit[0].Author = action.Author
-            edit[0].Time = action.Time
-            return {
-             ...action.textBooks,
-                ...edit
+            let edit = action.textBooks.filter((textbook, index) => {
+           return textbook.Name === action.bookName 
+            })
+            console.log(edit[0])
+
+            if (edit) {
+                
+                    // edit[0].ISBN = action.ISBN
+                    edit[0].Name = action.Name
+                    edit[0].Id = action.Id
+                    edit[0].Author = action.Author
+                    edit[0].Time = action.Time
             }
+           
+ 
+            return [
+                ...action.textBooks,
+            ]
+                 
+                
+            
         
         default:
             return state

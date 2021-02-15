@@ -12,7 +12,7 @@ let newSemester = ({id,year,period}) => (
         semester: {
         id,
         period,
-        year
+        year 
         }
       
     }
