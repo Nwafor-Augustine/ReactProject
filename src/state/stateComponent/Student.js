@@ -1,15 +1,19 @@
+import uuid from "react-uuid"
+import moment from 'moment'
+
 //student data management
 const student = []
 
-const newStudent=({Id,Name,Department,Credit})=>(
+const newStudent=({Name,Department,Credit})=>(
 
     {
         type: "NEW_STUDENT",
         student: {
             Name,
-            Id,
+            Id:uuid(),
             Department,
-            Credit
+            Credit,
+            Time:moment().valueOf()
         }
       
     }
@@ -18,27 +22,14 @@ const newStudent=({Id,Name,Department,Credit})=>(
 
 
 
-const removeStudent = (filter, student) => {
-   
-    let sortStudent = student.filter((students) => {
-       
-       if (students.Name === filter) {
-           return false
+const removeStudent = (filter,id,students) => {
 
-       } else if(students.Id === filter){
-            return false
-       }else if(students.Department === filter){
-            return false
-       } else {
-           return true
-       }
-
-    })
+ 
     return {
-        type:"REMOVE_STUDENT",
-        student:{
-          ...sortStudent 
-        }
+        type: "REMOVE_STUDENT",
+        students,
+        id
+      
     }
 }
    
@@ -55,13 +46,34 @@ const studentReducer = (state = student, action) => {
     switch (action.type) {
      
         case "NEW_STUDENT":
-
-            return [...state,{...action.student}]
+       
+            return [
+                     ...state, { ...action.student }
+            
+            
+                    ].sort((a, b) => {
+                   
+                               return b.Name < a.Name 
+                      })
         
         case "REMOVE_STUDENT":
-            return {
-      ...action.student
-  }
+             
+            let index = action.students.findIndex((student) => {
+        return action.id === student.Id 
+    })
+            
+            action.students.splice(index, 1)
+            action.students.sort((a, b) => {
+                   
+                return b.Name < a.Name 
+            })
+
+           
+            return [
+              ...state
+            ]
+     
+  
         
         default:
             return state

@@ -32,20 +32,20 @@ export let store = createStore(
  
 //     console.log(store.getState())
 // });
-store.dispatch(newSemester({ id: "9", period: "5", year: moment().valueOf()}))
-store.dispatch(newSemester({ id: "9", period: "5", year: "2021" }))
+// store.dispatch(newSemester({ id: "9", period: "5", year: moment().valueOf()}))
+// store.dispatch(newSemester({ id: "9", period: "5", year: "2021" }))
 
 
-store.dispatch(newStudent({ Id: 6, Name: "austine", Department: "electrical", Credit: 5 }))
-store.dispatch(newStudent({ Id: 6, Name: "austine", Department: "electrical", Credit: 5 }))
-store.dispatch(newStudent({ Id: 5, Name: "jane", Department: "mech", Credit: 5 }))
-store.dispatch(newStudent({ Id: 5, Name: "woo", Department: "mech", Credit: 5 }))
-// store.dispatch(filterStudent({Name:"",Id:5,Department:"electrical",Type:"Department"}))
-store.dispatch(newInstructor({ serialNumber: 1, Name: "mike", DepartmentalName: "computer", Salary: "2000" }))
-// store.dispatch(newInstructor({ serialNumber: 1, Name: "jude", DepartmentalName: "computer", Salary: "2000" }))
-// store.dispatch(addTextBooks({ ISBN: 12234, Name: "kerry", Id: 2, Author: "austine", Time: 2009 }))
-// store.dispatch(addTextBooks({ ISBN: 9000, Name: "weee", Id: 3, Author: "boo",Time:204 }))
-// store.dispatch(addTextBooks({ ISBN: 12234, Name: "dddd", Id: 5, Author: "austine",Time:2003 }))
+
+store.dispatch(newStudent({ Id: 6, Name: "gustine", Department: "electrical1", Credit: 5 }))
+store.dispatch(newStudent({ Id: 2, Name: "austine", Department: "electrical2", Credit: 5 }))
+store.dispatch(newStudent({ Id: 8, Name: "fustine", Department: "electrical3", Credit: 5 }))
+store.dispatch(newStudent({ Id: 9, Name: "bustine", Department: "electrical4", Credit: 5 }))
+
+// // store.dispatch(filterStudent({Name:"",Id:5,Department:"electrical",Type:"Department"}))
+
+
+
 // let state = store.getState()
 // let student = state.Addstudent;
 // let filter = state.Filter
@@ -53,9 +53,11 @@ store.dispatch(newInstructor({ serialNumber: 1, Name: "mike", DepartmentalName: 
 // let textBooks = state.AddBook;
 // store.dispatch(editTextBooks("dddd",textBooks,{ISBN:500, Name:"micheal",Id:"",Author:"alex",Time:2000}))
 // store.dispatch(sortTextBooks({sortType:"Date",textBooks}))
-// store.dispatch(removeStudent(filter,student))
 
-  
+
+store.subscribe(() => {
+     console.log(store.getState())
+ })
 
 
 

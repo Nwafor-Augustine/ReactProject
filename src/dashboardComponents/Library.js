@@ -1,6 +1,7 @@
 import React from 'react'
-import Lib from './connectedLibrary'
+import Libraries  from './connectedLibrary'
 import Fragment from 'react-dom'
+import {Container} from 'react-bootstrap'
 
 
 export default class Library extends React.Component{
@@ -8,13 +9,16 @@ export default class Library extends React.Component{
     render() {
         
         return (
-
-               <React.Fragment>
-               <h1>Library</h1>
+                <Container fluid={true}>
+                 <React.Fragment>
+                    <h1>Library</h1>
+                     </React.Fragment>
    
-                <Lib />
+                  <Libraries />
                 
-            </React.Fragment>
+           
+                </Container>
+              
     )
     }
 

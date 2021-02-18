@@ -1,36 +1,48 @@
 import uuid from 'react-uuid'
+import moment from 'moment'
+
+
 
 // small library  data management
-let id = uuid()
+
  
 
 const textBooks = [
     {
     ISBN: "22333-33",
     Name: "find friends",
-    Id: id,
+    Id:  uuid(),
     Author: "jackspel",
-    Time:2001
+    Time:moment().valueOf()
 }
 ]
 
 
-let addTextBooks = ( { ISBN, Name, Author, Time }) => {
+let addTextBooks = ( { ISBN, Name,Author}) => {
     
-    
+   
     return {
     type:"ADDTEXTBOOK",
     textBook:{
     ISBN,
     Name,
     Author,
-    Time,
-    Id:uuid(),
+    Time:moment().valueOf(),
+    Id: uuid()
     }
 }
 }
    
+
+let removeBook = (id,books) => {
+
+    return {
+        type: "REMOVE_BOOK",
+        id,
+        books
+    }
     
+}
 
 
 
@@ -58,7 +70,8 @@ let sortTextBooks = ({sortType,textBooks}) => {
         } else if (sortType === "Date") {
             return a.Time < b.Time ? -1:1
            }
-       })
+   })
+   
     return {
         type: "SORT_TEXT_BOOK",
         sortTextBook:{
@@ -74,9 +87,17 @@ const bookReducer = (state=textBooks, action) => {
        
         case "ADDTEXTBOOK":
             return [
-            ...state,
-                { ...action.textBook }
-            ]
+                       ...state,
+                       { ...action.textBook }
+            
+                    ].sort((a, b) => {
+                   
+                               return b.Name < a.Name 
+                      })
+
+
+
+        
         case "SORT_TEXT_BOOK":
 
             return  {
@@ -90,8 +111,7 @@ const bookReducer = (state=textBooks, action) => {
             let edit = action.textBooks.filter((textbook, index) => {
            return textbook.Name === action.bookName 
             })
-            console.log(edit[0])
-
+        
             if (edit) {
                 
                     // edit[0].ISBN = action.ISBN
@@ -106,8 +126,23 @@ const bookReducer = (state=textBooks, action) => {
                 ...action.textBooks,
             ]
                  
-                
-            
+        case "REMOVE_BOOK": 
+       
+            let index = action.books.findIndex((book) => {
+            return action.id === book.Id
+            })
+           
+            action.books.splice(index, 1)
+          action.books.sort((a, b) => {
+                   
+                               return b.Name < a.Name 
+                      })
+        
+            return [
+
+                ...state
+        
+            ]
         
         default:
             return state
@@ -116,4 +151,4 @@ const bookReducer = (state=textBooks, action) => {
     }
 }
 
-export{bookReducer,addTextBooks, sortTextBooks,editTextBooks}
+export{bookReducer,addTextBooks, sortTextBooks,editTextBooks,removeBook}

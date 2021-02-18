@@ -1,21 +1,23 @@
+import uuid from "react-uuid"
+
 // instructor data management
 const instructors = [{
-    serialNumber: "0",
+    serialNumber: uuid(),
     Name: "Austine",
-    DepartmentalName: "Electrical",
+    Department: "Electrical",
     Salary:"$50000"
 }
 ]
 
 
-let newInstructor = ({serialNumber,Name,DepartmentalName,Salary}) => (
+let newInstructor = ({Name,Department,Salary}) => (
     
     {
         type: "NEW_INSTRUCTOR", 
         instructor: {
-        serialNumber,
+        serialNumber:uuid(),
         Name,
-        DepartmentalName,
+        Department,
         Salary
         }
       
@@ -24,21 +26,12 @@ let newInstructor = ({serialNumber,Name,DepartmentalName,Salary}) => (
 )
 
 
-let removeInstructor = (Name, instructor) => {
+let removeInstructor = (serialNumber,instructors) => {
      
-    let sortInstructor = instructor.filter((instructors) => {
-       return instructors.Name === Name ? false:true
-        
-    })
-  
     return  {
         type: "REMOVE_INSTRUCTOR", 
-        Name,
-        instructor:{
-        sortInstructor 
-        }
-
-      
+        instructors,
+        serialNumber
    }
 }
 
@@ -62,11 +55,19 @@ const instructorReducer = (state=instructors, action) => {
             ]
         case "REMOVE_INSTRUCTOR":
                 
-
-            return {
+        let index = action.instructors.findIndex((instructor) => {
+        
+            return instructor.serialNumber === action.serialNumber
+        })
+            
+            action.instructors.splice(index, 1)
+            
+            return [
                 
-                   ...action.instructor
-                }
+                ...state
+                
+                
+            ] 
             
 
         default:
