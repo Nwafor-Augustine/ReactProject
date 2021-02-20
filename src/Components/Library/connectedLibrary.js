@@ -1,7 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ListOfBooks } from '../component/ListBooks'
-import {addTextBooks} from '../state/stateComponent/Library'
+import { ListOfBooks } from './ListBooks'
+import { addTextBooks } from '../../state/stateComponent/Library'
+import { TextField, Container, Button } from '@material-ui/core'
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import AddIcon from '@material-ui/icons/Add';
 
 
 class Libraries extends React.Component {
@@ -47,7 +50,7 @@ class Libraries extends React.Component {
     }
     
     isbnChangeUpdate(e){
-      
+        
         this.setState(() => (
             {
              ISBN:e.target.value
@@ -75,31 +78,51 @@ class Libraries extends React.Component {
     render() {
 
         return (
-            <div>
+            <Container>
 
-             
-                    <label htmlFor="name">Name:  <input type="type" id="name" onChange={this.nameChangeUpdate} placeholder="NAME"></input></label>
                   
+                <label>
+                    Name:
+                     <TextField style={{ margin: 8 }}  type="text"placeholder="Name" variant="outlined" fullWidth
+                        margin="normal"
+                        color="secondary"
+                        onChange={this.nameChangeUpdate} 
+                    />
+             </label>
                
-               
-                    <label htmlFor="name">Author: <input type="type" id="name" onChange={this.authorChangeUpdate} placeholder="AUTHOR" ></input></label>
                    
+               <label>
+                    Author:
+                     <TextField style={{ margin: 8 }}  type="text"placeholder="Name" variant="outlined" fullWidth
+                        margin="normal"
+                        color="secondary"
+                         onChange={this.authorChangeUpdate} 
+                    />
+             </label>
                
                
-                    <label htmlFor="name">ISBN: <input type="type" id="name" onChange={this.isbnChangeUpdate} placeholder="ISBN" ></input>
-               </label>
-                   
+                 
+                     <label>
+                    ISBN:
+                     <TextField style={{ margin: 8 }}  type="text"placeholder="Name" variant="outlined" fullWidth
+                        margin="normal"
+                        color="secondary"
+                          onChange={this.isbnChangeUpdate} 
+                    />
+                </label>
+                
                 <React.Fragment>
 
 
                     <ListOfBooks books={this.props.library} store={this.props} />
+                    
+                     <Button variant="contained" color="primary"  state={this.state} startIcon={<AddIcon/>} onClick={this.addTextBook}>Add Book</Button>
 
-
-                    <button type="button" onClick={this.addTextBook} state={this.state}>Add Book</button>
+               
                 </React.Fragment>
 
 
-            </div>
+            </Container>
         )
 
     }

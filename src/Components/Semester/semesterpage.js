@@ -8,7 +8,8 @@ export default class Section extends React.Component{
         return (
             <div>
                 <h1>Semester</h1>
-                <Semester/>
+                <Semester />
+              
             </div>
 
             

@@ -13,8 +13,8 @@ export default class Instructor extends React.Component{
         return (
             <div>
               
-              <Instructors />
-               
+              <Instructors getpath={this.props}/>
+                 
                
             </div>
 

@@ -1,3 +1,5 @@
+import uuid from "react-uuid"
+
 const semester = []    
 
 
@@ -5,18 +7,30 @@ const semester = []
 Actions for semester
 */
 
-let newSemester = ({id,year,period}) => (
+let newSemester = ({year,period}) => (
     
     {
         type: "ADD_SEMESTER",
         semester: {
-        id,
+        id:uuid(),
         period,
         year 
         }
       
     }
 )
+
+let removeSemester = (id, semesters) => (
+    
+    {
+        type:"REMOVE_SEMESTER",
+        id,
+        semesters
+    }
+)
+    
+
+
 
 const semesterReducer = (state = semester, action) => {
     
@@ -28,8 +42,24 @@ const semesterReducer = (state = semester, action) => {
             return [
                 ...state,
               {...action.semester}  
-            ]
+            ].sort((a,b) => {
+              return  a.period - b.period
+            })
+        
+        case "REMOVE_SEMESTER":   
             
+       let index = action.semesters.findIndex((semester) => {
+                return action.id === semester.id
+            })
+            action.semesters.splice(index, 1)
+
+        let e =  action.semesters.sort((a,b) => {
+              return  a.period - b.period
+            })
+          
+            return [
+              ...state
+            ]
         default:
 
             return state
@@ -37,4 +67,4 @@ const semesterReducer = (state = semester, action) => {
     }
 }
 
-export { newSemester, semesterReducer }
+export { newSemester, semesterReducer,removeSemester }

@@ -32,15 +32,13 @@ export let store = createStore(
  
 //     console.log(store.getState())
 // });
-// store.dispatch(newSemester({ id: "9", period: "5", year: moment().valueOf()}))
-// store.dispatch(newSemester({ id: "9", period: "5", year: "2021" }))
+store.dispatch(newSemester({ id: "9", period: 2, year: moment().valueOf()}))
+store.dispatch(newSemester({ id: "10", period: 5, year: moment().valueOf()}))
+store.dispatch(newSemester({ id: "11", period: 4, year: moment().valueOf() }))
+store.dispatch(newSemester({ id: "1", period: 1, year: moment().valueOf() }))
+store.dispatch(newSemester({ id: "0", period: 3, year: moment().valueOf()}))
 
 
-
-store.dispatch(newStudent({ Id: 6, Name: "gustine", Department: "electrical1", Credit: 5 }))
-store.dispatch(newStudent({ Id: 2, Name: "austine", Department: "electrical2", Credit: 5 }))
-store.dispatch(newStudent({ Id: 8, Name: "fustine", Department: "electrical3", Credit: 5 }))
-store.dispatch(newStudent({ Id: 9, Name: "bustine", Department: "electrical4", Credit: 5 }))
 
 // // store.dispatch(filterStudent({Name:"",Id:5,Department:"electrical",Type:"Department"}))
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ListOfStudent } from '../component/ListOfStudent'
-import {newStudent,removeStudent} from '../state/stateComponent/Student'
+import { ListOfStudent } from '../../component/ListOfStudent'
+import {newStudent,removeStudent} from './student'
 
 class Students extends React.Component{
     constructor(props) {

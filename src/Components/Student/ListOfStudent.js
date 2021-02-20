@@ -1,5 +1,5 @@
 import React from 'react'
-import{removeStudent}from '../state/stateComponent/Student'
+import{removeStudent}from '../../state/stateComponent/Student'
 export let ListOfStudent = (props) => (
 
 
