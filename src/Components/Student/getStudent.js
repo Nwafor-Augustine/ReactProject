@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ListOfStudent } from './ListOfStudent'
 import {newStudent,removeStudent} from '../../state/stateComponent/Student'
-
+import { Button } from '@material-ui/core'
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 class Students extends React.Component{
     constructor(props) {
         super(props)
@@ -79,29 +79,18 @@ class Students extends React.Component{
              <label>
             Creadit: <input type="number"placeholder="Creadits" min="0" onChange={this.creditOnChange}></input>
                 </label>
-                
-                <React.Fragment>
-                    
-                    <ListOfStudent
-                      
-                        removeStudent={this.removeStudent}
-                        removeOnChange={this.removeOnChange}
-                        store={this.props}
-                    />
-                    
-                    <button onClick={this.addNewstudent}>Add Student</button>
-                     
-                </React.Fragment>
+
+                       <Button variant="contained" color="primary" startIcon={<PersonAddIcon />} onClick={this.addNewstudent}>Add Student</Button>
+               
         </div>
             
        ) 
     }
 }
 
-let connectedStudent = connect((state) => (
-    {
-       students:state.Addstudent
+export default connect((state) => {
+    return {
+        students: state.Addstudent
     }
-))(Students)
+})(Students)
 
-export default connectedStudent;

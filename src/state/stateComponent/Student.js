@@ -22,7 +22,7 @@ const newStudent=({Name,Department,Credit})=>(
 
 
 
-const removeStudent = (filter,id,students) => {
+const removeStudent = (id,students) => {
 
  
     return {

@@ -1,46 +1,17 @@
 import React from 'react'
-import{removeStudent}from '../../state/stateComponent/Student'
-export let ListOfStudent = (props) => (
+import { removeStudent } from '../../state/stateComponent/Student'
+import BasicTable from './showStudent'
+import {connect} from 'react-redux'
+
+let ListOfstudent = (props) => (
 
 
-        props.store.students.map((student) => {
+        props.mapstudent.map((student) => {
             return (
                 <div key={student.Id}>
             
-                <table>
-                    <thead>
-                            <tr>
-                                <td>
-                                Name
-                            </td>
-                             <td>
-                                Department
-                            </td>
-                             <td>
-                                Creadit
-                            </td>
+                    <BasicTable store={props} student={student}/>
                     
-                            </tr>
-                            
-                    </thead>
-                    <tbody>
-                        <tr>
-                                <td> {student.Name}</td>
-                                <td> {student.Department}</td>
-                                <td> {student.Credit}</td>
-                        </tr>
-                    </tbody>
-                
-                </table>
-                    <button 
-                    onClick={
-                           () => {
-                        
-                               props.store.dispatch(removeStudent(props.store.Filter, student.Id, props.store.students))                          
-                           
-                                  }
-                         }>Remove
-                     </button>
             
             </div>
         )
@@ -48,4 +19,12 @@ export let ListOfStudent = (props) => (
         
     
 )
+
+export default connect((store) => {
+    return {
+        mapstudent:store.Addstudent
+    }
+})(ListOfstudent) 
+
+
 

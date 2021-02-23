@@ -4,22 +4,32 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import SettingsIcon from '@material-ui/icons/Settings';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon  from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import {CssBaseline,AppBar,Button,useMediaQuery,Grid} from '@material-ui/core';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
+import {CssBaseline,AppBar,Button,useMediaQuery,Grid,Box, Container} from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
+import { green,grey } from '@material-ui/core/colors';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme, Theme, createStyles} from '@material-ui/core/styles';
 import Instructors from '../Instructor/ListOfIinstructor'
 import  ListOfBooks from '../Library/ListBooks'
 import ListOfsemester from '../Semester/ListOfSemester'
-
-const drawerWidth = 240;
+import ListOfstudent from '../Student/ListOfStudent'
+import Studentfeature from '../dashboradFeatures/studentfeatures'
+import Instructorfeature from '../dashboradFeatures/instructorfeature'
+import Libraryfeature from '../dashboradFeatures/library feactures'
+import Semesterfeature from '../dashboradFeatures/semesterfeatures'
+import ListItem from '@material-ui/core/ListItem';
+import SchoolIcon from '@material-ui/icons/School';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
+import PersonIcon from '@material-ui/icons/Person';
+import  MenuIcon from '@material-ui/icons/Menu'
+const drawerWidth = 250;
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -37,7 +47,7 @@ const useStyles = makeStyles((theme) =>
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         },
-        backgroundColor: "green"
+        backgroundColor: green[500]
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -45,11 +55,7 @@ const useStyles = makeStyles((theme) =>
         display: 'none',
       },
       },
-      navshow: {
-         [theme.breakpoints.up('sm')]: {
-        display: 'none',
-      }
-    },
+     
     // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
@@ -60,6 +66,20 @@ const useStyles = makeStyles((theme) =>
       padding: theme.spacing(3),
       marginTop:25
     },
+    featurecontainer: {
+      marginTop:25
+    },
+    logo:{
+      textAlign:"center"
+    },
+
+    loginbtn: {
+      color:green[500],
+      backgroundColor:grey[50]
+    }
+     
+ 
+    
   }),
 );
 
@@ -78,27 +98,67 @@ export default function DashboradPage(props) {
 
   const drawer = (
     <div>
-         
-          <h1>
+      <Box>
+          <h1 className={classes.logo}>
           JBee
           </h1>
+      </Box>
+         
       <Divider />
-      <List>
-        {['Home', 'Student', 'Instructor', 'Semester'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+     
+       <List component="nav" aria-label="dashboard navigation">
+        <ListItem button>
+          <ListItemIcon>
+            <HomeIcon/>
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <PersonIcon />
+          </ListItemIcon>
+          <ListItemText primary="Student" />
+        </ListItem>
+         <ListItem button>
+          <ListItemIcon>
+            <PersonIcon />
+          </ListItemIcon>
+          <ListItemText primary="Instructor" />
+        </ListItem>
+         <ListItem button>
+          <ListItemIcon>
+            <LibraryBooksIcon />
+          </ListItemIcon>
+          <ListItemText primary="Library" />
+        </ListItem>
+          <ListItem button>
+          <ListItemIcon>
+            <SchoolIcon />
+          </ListItemIcon>
+          <ListItemText primary="Semester" />
+        </ListItem>
       </List>
+   
       <Divider />
       <List>
-        {['About', 'Contact', 'Features'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+         <ListItem button>
+          <ListItemIcon>
+            <InfoIcon />
+          </ListItemIcon>
+          <ListItemText primary="About" />
+        </ListItem>
+         <ListItem button>
+          <ListItemIcon>
+            <ContactSupportIcon  />
+          </ListItemIcon>
+          <ListItemText primary="Contact" />
+        </ListItem>
+         <ListItem button>
+          <ListItemIcon>
+            <SettingsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Features" />
+        </ListItem>
       </List>
     </div>
   );
@@ -118,18 +178,18 @@ export default function DashboradPage(props) {
             className={classes.menuButton}
           >
             <MenuIcon />
-                  </IconButton>
+            </IconButton>
                   
                   <Grid container>
-                   <Grid item sm={4}>
-                          <Typography variant="h6">
+                   <Grid item sm={10}>
+                        
                           {matches ? <Nav/>: undefined} 
         
-                          </Typography>
+                          
                       </Grid> 
-                      <Grid item sm={4}></Grid>
-                   <Grid item sm={4}>
-                <Button variant="contained" color="inherit">Logout</Button>     
+                      <Grid item></Grid>
+                   <Grid item sm={2}>
+                <Button variant="contained" className={classes.loginbtn}>Logout</Button>     
                   </Grid> 
          
                   </Grid>  
@@ -169,9 +229,37 @@ export default function DashboradPage(props) {
       </nav>
       <main className={classes.content}>
         
-        <Instructors />
-        <ListOfBooks />
-        <ListOfsemester/>
+       
+        {
+// <Instructors />
+//       <ListOfBooks />
+//         <ListOfsemester />
+//         <ListOfstudent />
+        }
+        <Container className={classes.featurecontainer} >
+        
+         <Grid container spacing={4}>
+          
+          <Grid item lg={6}>
+          <Studentfeature />
+          </Grid>
+
+          <Grid item lg={6}>
+           <Instructorfeature />
+          </Grid>
+
+          <Grid item lg={6}>
+          <Libraryfeature/>
+          </Grid>
+
+          <Grid item lg={6}>
+           <Semesterfeature />
+          </Grid>
+    
+        </Grid>
+        </Container>
+       
+      
       </main>
     </div>
   );

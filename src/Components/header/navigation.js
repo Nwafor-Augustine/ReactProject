@@ -1,5 +1,6 @@
 import { Link, BrowserRouter as Router } from 'react-router-dom'
 import React from 'react'
+import {Box} from '@material-ui/core'
 
 
 export let Nav = () => (
