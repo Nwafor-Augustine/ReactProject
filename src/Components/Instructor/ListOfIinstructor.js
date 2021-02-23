@@ -1,18 +1,31 @@
 import React from 'react'
 import BasicTable from './showList'
+import { connect } from 'react-redux'
 
-export let Instructor = (props) => (
+let Instructors = (props) => (
+
+    props.mapinstructor.map((instructor) => {
     
-    props.Instructors.map((instructor) => {
         return (
-         
-                <React.Fragment key={instructor.serialNumber}>
-                   
-                   <BasicTable instructor={instructor} storeAction={props}></BasicTable>
-                </React.Fragment>
-            
+   
+            <React.Fragment key={instructor.serialNumber}>
+ 
+                <BasicTable instructor={instructor} store={props}></BasicTable>
+
+
+            </React.Fragment>
+
         )
     })
 
 
 )
+
+
+
+
+export default connect((state) => {
+    return {
+       mapinstructor: state.Addinstructor
+    }
+})(Instructors)

@@ -1,26 +1,35 @@
-import { connect } from 'react-redux'
+
 import React from 'react'
-import { Instructor } from './ListOfIinstructor'
 import {newInstructor } from '../../state/stateComponent/Instructor'
-import Modal from 'react-modal'
-import { Button, Container, TextField} from '@material-ui/core';
+import { Button, Container, TextField,Avatar} from '@material-ui/core';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import ResponsiveDialog from '../alertModal'
+import { connect } from 'react-redux'
 
 
-class Instructors extends React.Component{
+ class getInstructor extends React.Component{
     constructor(props) {
         super(props)
 
         this.state = {
             Name: "",
             Department: "",
-            Salary:""
+            Salary: "",
+            getInstructor: 0,
+            action: false,
+            
+            
         }
-
+        
         this.onNameChange = this.onNameChange.bind(this)
         this.onDepartmentChange = this.onDepartmentChange.bind(this)
         this.onSalaryChange = this.onSalaryChange.bind(this)
         this.Addinstructor = this.Addinstructor.bind(this)
+        this.closeModalComfirm = this.closeModalComfirm.bind(this)
+        this.closeModalCancel = this.closeModalCancel.bind(this)
+        this.comfirmAndAddInstructor = this.comfirmAndAddInstructor.bind(this)
+     
+        
     }
   
 
@@ -62,20 +71,85 @@ class Instructors extends React.Component{
         )
          
        
+     }
+    
+    comfirmAndAddInstructor() {
+         
+        this.setState(() => (
+            {
+                 action: true,
+            }
+        ) 
+            
+         )
+         
+        
+       
+       
+        if (this.state.getInstructor) {
+            this.setState(() => (
+            {
+             getInstructor:0
+            }
+        ) 
+            
+            )
+            
+        } else {
+            this.setState(() => (
+            {
+                    getInstructor: 1,
+                    action:false
+            }
+        ) 
+            
+            )
+            
+        }
+         
     }
 
     Addinstructor() {
-        if (this.state.Name && this.state.Department && this.state.Salary) {
+         
+        
+     this.comfirmAndAddInstructor()     
+     
+     
+     
+    }
+
+    closeModalComfirm() {
+        this.setState(() => (
+            {
+                action: false,
+               
+                
+            }
+        ))
+
+             if (this.state.Name && this.state.Department && this.state.Salary) {
             this.props.dispatch(newInstructor(this.state))
             this.state.Name = ""
             this.state.Department = ""
             this.state.Salary = ""
-        }
+           
+             } 
+             
         
-  
-     
     }
 
+
+ closeModalCancel() {
+        this.setState(() => (
+            {
+                action: false,
+               
+                
+            }
+        ))
+    
+    }
+   
     
     render() {
         return (
@@ -84,6 +158,9 @@ class Instructors extends React.Component{
                  <Container>
                 <h1>Instructor</h1>
             
+                
+                     <React.Fragment>
+                    
              <label>
                     Name:
                      <TextField style={{ margin: 8 }} placeholder="Name" variant="outlined" fullWidth
@@ -113,22 +190,18 @@ class Instructors extends React.Component{
                         onChange={this.onSalaryChange}
                     />
                 </label>
-
-                <Instructor Instructors={this.props.Instructors} store={this.props} getpath={this.props.getpath}/>
+                    </React.Fragment>
                 
+
+              
+                
+                     <ResponsiveDialog openModal={this.state.action} closeModalComfirm={this.closeModalComfirm} closeModalCancel={this.closeModalCancel}/>
+                
+                    <Button variant="contained" color="primary" startIcon={<PersonAddIcon />} onClick={this.Addinstructor}>Add Instructor</Button>
                     
-                   <Button variant="contained" color="primary"   startIcon={<PersonAddIcon />} onClick={this.Addinstructor}>Add Instructor</Button>
-             
-
-                 <Modal
-                    isOpen={false}
-                    ariaHideApp={false}
-                
-                >
-                    <h1>Instructor</h1> 
-                    <p>Comfirm</p>
-                    <Button>Ok</Button>
-                </Modal>
+                   
+                    
+              
             </Container>
               
                 
@@ -144,10 +217,4 @@ class Instructors extends React.Component{
 }
 
 
-let connectedInstructor = connect((state) => {
-    return {
-        Instructors:state. Addinstructor
-    }
-})(Instructors)
-
-export default connectedInstructor
+ export default connect(undefined)(getInstructor)

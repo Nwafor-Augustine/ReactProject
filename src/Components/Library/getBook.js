@@ -114,9 +114,9 @@ class Libraries extends React.Component {
                 <React.Fragment>
 
 
-                    <ListOfBooks books={this.props.library} store={this.props} />
                     
-                     <Button variant="contained" color="primary"  state={this.state} startIcon={<AddIcon/>} onClick={this.addTextBook}>Add Book</Button>
+                    
+                     <Button variant="contained" color="primary" startIcon={<AddIcon/>} onClick={this.addTextBook}>Add Book</Button>
 
                
                 </React.Fragment>
@@ -131,11 +131,6 @@ class Libraries extends React.Component {
 
 
 
-let connectedLibrary = connect((state) => (
-    {
-        library: state.AddBook
-    }
-)
-)(Libraries)
+let connectedLibrary = connect(undefined)(Libraries)
 
 export default connectedLibrary;

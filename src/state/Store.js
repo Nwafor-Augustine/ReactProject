@@ -13,7 +13,7 @@ export let store = createStore(
     combineReducers(
 
     {
-    SemesterReducer: semesterReducer,
+    Semester: semesterReducer,
     Addstudent: studentReducer,
     Addinstructor: instructorReducer,
     AddBook: bookReducer,
@@ -34,9 +34,7 @@ export let store = createStore(
 // });
 store.dispatch(newSemester({ id: "9", period: 2, year: moment().valueOf()}))
 store.dispatch(newSemester({ id: "10", period: 5, year: moment().valueOf()}))
-store.dispatch(newSemester({ id: "11", period: 4, year: moment().valueOf() }))
-store.dispatch(newSemester({ id: "1", period: 1, year: moment().valueOf() }))
-store.dispatch(newSemester({ id: "0", period: 3, year: moment().valueOf()}))
+
 
 
 

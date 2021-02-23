@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {ListOfSemester} from './ListOfSemester'
 import { newSemester} from "../../state/stateComponent/Semester"
 
 class Semester extends React.Component {
@@ -22,6 +21,7 @@ class Semester extends React.Component {
       this.props.dispatch(newSemester(this.state))
       this.state.period = ""
       this.state.year = ""
+     
     }
 
  
@@ -59,8 +59,7 @@ class Semester extends React.Component {
             <label>
             Year:<input type="text" onChange={this.onYearChange}></input>
             </label>
-                   
-               <ListOfSemester store={this.props} />
+               
                <button onClick={this.addSemester}>Add Semester</button>
         </div>
     )
@@ -70,9 +69,5 @@ class Semester extends React.Component {
 }
 
 
- let sections = connect((state) => {
-    return {
-        semesters:state.SemesterReducer
-    }
- })(Semester)
-export default sections
+  
+export default connect(undefined)(Semester)

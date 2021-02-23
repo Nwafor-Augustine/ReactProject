@@ -9,7 +9,11 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import {Chip,Button }from '@material-ui/core'
 import React from 'react'
-import { removeInstructor } from '../../state/stateComponent/Instructor'
+import {removeSemester} from '../../state/stateComponent/Semester';
+
+
+
+
 
 const useStyles = makeStyles({
   table: {
@@ -28,9 +32,9 @@ export default function BasicTable(props) {
         <TableHead>
           <TableRow>
             <TableCell align="left">S/N</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Department</TableCell>
-            <TableCell align="right">Salary</TableCell>
+            <TableCell align="right">Period</TableCell>
+            <TableCell align="right">Year</TableCell>
+        
               </TableRow>
               </TableHead>
               
@@ -39,31 +43,30 @@ export default function BasicTable(props) {
               <TableCell component="th" scope="row" align="left">
                1
                 </TableCell>
-                            <TableCell align="right">
-                             {props.instructor.Name}
-                            </TableCell>            
-              <TableCell align="right">{props.instructor.Department}</TableCell>
-              <TableCell align="right">{props.instructor.Salary}</TableCell>
+                                  
+              <TableCell align="right">{props.semester.period}</TableCell>
+              <TableCell align="right">{props.semester.year}</TableCell>
             </TableRow>
     
         </TableBody>
       </Table>
             </TableContainer>
-    <Chip
+             <Chip
        
         label="delete"
         color="secondary"
        onDelete={
-         () => {
-             
-           props.store.dispatch(removeInstructor(props.instructor.serialNumber,props.store.mapinstructor))
-           
+           () => {
+                           
+                            props.store.dispatch(removeSemester(props.semester.id, props.store.mapsemester))
                        
-                }
+             
+             
+                        }
                        
                     }
-     />
-            <Button  color="primary" variant="outlined" startIcon={<EditIcon/>}>Edit</Button>
+            />
+            <Button href="/edit"  color="primary" variant="outlined" startIcon={<EditIcon/>}>Edit</Button>
       </Paper>
    
   );

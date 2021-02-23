@@ -57,8 +57,8 @@ export default function BasicTable(props) {
         color="secondary"
        onDelete={
            () => {
-                            console.log(props)
-                            props.storeAction.store.dispatch(removeBook(props.book.Id, props.storeAction.books))
+                           
+                            props.storeAction.dispatch(removeBook(props.book.Id, props.storeAction.books))
                        
                           
                         }

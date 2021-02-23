@@ -2622,7 +2622,7 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-history@^4.9.0:
+history@^4.5.0, history@^4.9.0:
   version "4.10.1"
   resolved "https://registry.yarnpkg.com/history/-/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
   integrity sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==
@@ -4353,6 +4353,13 @@ react-dom@^17.0.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.1"
+
+react-history@^0.18.2:
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/react-history/-/react-history-0.18.2.tgz#b6fe970751606afe0039c1a828ba8766de958f6a"
+  integrity sha1-tv6XB1Fgav4AOcGoKLqHZt6Vj2o=
+  dependencies:
+    history "^4.5.0"
 
 react-is@^16.12.0, react-is@^16.13.1, react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

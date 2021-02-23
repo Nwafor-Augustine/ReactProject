@@ -1,14 +1,12 @@
 
 import React from 'react'
-import { store } from '../../state/Store'
+import { connect } from 'react-redux'
 import BasicTable from '../Library/showLibrary'
 
 
-export let ListOfBooks = (props) => (
+let ListOfBooks = (props) => (
   
-
-    <div>
-        {props.books.map((book) => {
+        props.books.map((book) => {
              
             return (
                 <div key = { book.Id }>
@@ -16,6 +14,12 @@ export let ListOfBooks = (props) => (
                 
                 </div>
             )
-    })}
-    </div>
+    })
+    
 )
+
+ export default connect((state) => (
+    {
+       books:state.AddBook
+    }
+))(ListOfBooks)

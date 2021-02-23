@@ -1,14 +1,15 @@
 
 
 import React from 'react'
-
+import Nav from './navigation'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import {Container,Grid} from '@material-ui/core/';
+import MenuIcon from '@material-ui/icons/Menu';
+import {IconButton} from '@material-ui/core';
+import {Container,Grid} from '@material-ui/core';
 
 
 
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-let Header = ()=> {
+let Header = (props)=> {
     
     const classes = useStyles();
         
@@ -59,13 +60,15 @@ let Header = ()=> {
              <AppBar position="fixed" className={classes.bkgColor}  >   
                     <Toolbar>
                   <Grid container >
-                    <Grid item sm={12}   md={5} lg={6} >
+                  <Grid item sm={12} md={5} lg={6} >
+                     
                        <Typography variant="h6" className={classes.title}>
-                           Jbee School
-                         </Typography>
-                    </Grid>
+                       {props.check ? <IconButton><MenuIcon /></IconButton>:undefined}
+                          Jbee School
+                        </Typography>
+                  </Grid>
                      <Grid item sm={12}   md={6} lg={5}>
-                      
+                    
                     </Grid>
                  
                     <Grid item sm={12}  md={1} lg={1}>
@@ -77,7 +80,11 @@ let Header = ()=> {
                      
                        
                    </Toolbar>
-             </AppBar>
+            </AppBar>
+            {
+                      
+                   props.check ? props.nav:undefined
+                      }
             </Container>
 
             
