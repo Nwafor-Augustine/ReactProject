@@ -22,7 +22,9 @@ let usestyle = makeStyles({
     intro: {
         color:"white",
         textAlign:"left",
-        marginTop:"20vh"
+        marginTop: "20vh",
+        position:"relative",
+        zIndex:100
     },
     section2: {
         height: "100vh" ,
@@ -54,7 +56,9 @@ let Home = () => {
                 <HomeloadingScreen />
                 
                 <section className={"section"}>
-                 <Container maxWidth="xl" >
+                      <div className={"shadow"}></div>
+                    <Container maxWidth="xl" >
+                        
                         <Grid container >
                             <Grid item lg={9}>
                                 <Typography  variant="h3"  className={classes.intro}>
