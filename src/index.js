@@ -5,7 +5,9 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import App from './Routing/App'
 import {Provider} from 'react-redux'
-import {store} from './state/Store'
+import { store } from './state/Store'
+import './styles/style.css'
+
 
 
 

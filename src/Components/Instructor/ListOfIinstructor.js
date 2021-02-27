@@ -1,5 +1,5 @@
 import React from 'react'
-import BasicTable from './showList'
+import BasicTable from './baicTableForEachIinstructor'
 import { connect } from 'react-redux'
 
 let Instructors = (props) => (

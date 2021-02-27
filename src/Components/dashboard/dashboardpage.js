@@ -47,10 +47,11 @@ const useStyles = makeStyles((theme) =>
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         },
-        backgroundColor: green[500]
+        backgroundColor: "white"
     },
     menuButton: {
       marginRight: theme.spacing(2),
+      color:green[500],
       [theme.breakpoints.up('sm')]: {
         display: 'none',
       },
@@ -63,19 +64,22 @@ const useStyles = makeStyles((theme) =>
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3),
-      marginTop:25
+      marginTop:"12vh"
     },
-    featurecontainer: {
-      marginTop:25
-    },
+    
     logo:{
-      textAlign:"center"
+      textAlign: "center",
+      color:green[500]
     },
 
     loginbtn: {
-      color:green[500],
-      backgroundColor:grey[50]
+      color:"white",
+      backgroundColor: green[500],
+      float: "right",
+      
+    },
+    navigationColor: {
+      color:green[500]
     }
      
  
@@ -98,45 +102,57 @@ export default function DashboradPage(props) {
 
   const drawer = (
     <div>
-      <Box>
+     
           <h1 className={classes.logo}>
           JBee
           </h1>
-      </Box>
+     
          
       <Divider />
      
        <List component="nav" aria-label="dashboard navigation">
+       
         <ListItem button>
           <ListItemIcon>
             <HomeIcon/>
           </ListItemIcon>
-          <ListItemText primary="Home" />
+          <ListItemText primary="Home"  className={classes. navigationColor}  />
         </ListItem>
+     
+        
         <ListItem button>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-          <ListItemText primary="Student" />
+          <ListItemText primary="Student"  className={classes. navigationColor}  />
         </ListItem>
+
+       
+        
          <ListItem button>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-          <ListItemText primary="Instructor" />
+          <ListItemText primary="Instructor"  className={classes. navigationColor}  />
         </ListItem>
-         <ListItem button>
+
+        
+         <ListItem button >
           <ListItemIcon>
             <LibraryBooksIcon />
           </ListItemIcon>
-          <ListItemText primary="Library" />
+          <ListItemText primary="Library"  className={classes. navigationColor} />
         </ListItem>
+
+       
+        
           <ListItem button>
           <ListItemIcon>
             <SchoolIcon />
           </ListItemIcon>
-          <ListItemText primary="Semester" />
+          <ListItemText primary="Semester"  className={classes. navigationColor} />
         </ListItem>
+
       </List>
    
       <Divider />
@@ -145,19 +161,19 @@ export default function DashboradPage(props) {
           <ListItemIcon>
             <InfoIcon />
           </ListItemIcon>
-          <ListItemText primary="About" />
+          <ListItemText primary="About"  className={classes. navigationColor} />
         </ListItem>
          <ListItem button>
           <ListItemIcon>
             <ContactSupportIcon  />
           </ListItemIcon>
-          <ListItemText primary="Contact" />
+          <ListItemText primary="Contact"  className={classes. navigationColor} />
         </ListItem>
          <ListItem button>
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
-          <ListItemText primary="Features" />
+          <ListItemText primary="Features" className={classes. navigationColor} />
         </ListItem>
       </List>
     </div>
@@ -180,16 +196,17 @@ export default function DashboradPage(props) {
             <MenuIcon />
             </IconButton>
                   
-                  <Grid container>
-                   <Grid item sm={10}>
+                  <Grid container >
+                   <Grid item sm={10} lg={6} >
                         
-                          {matches ? <Nav/>: undefined} 
-        
-                          
-                      </Grid> 
-                      <Grid item></Grid>
-                   <Grid item sm={2}>
-                <Button variant="contained" className={classes.loginbtn}>Logout</Button>     
+                          {matches ? <Nav />: undefined}  
+                     </Grid> 
+            
+            <Grid item lg={4} >
+            
+            </Grid>
+                   <Grid item sm={2}  lg={2}>
+                        <Button variant="contained" className={classes.loginbtn}>Logout</Button>     
                   </Grid> 
          
                   </Grid>  
@@ -231,12 +248,15 @@ export default function DashboradPage(props) {
         
        
         {
-// <Instructors />
-//       <ListOfBooks />
-//         <ListOfsemester />
-//         <ListOfstudent />
+        //   <div>
+        //    
+        //  <ListOfBooks />
+        // <ListOfsemester />
+        // <ListOfstudent />
+        //   </div>
+       
         }
-        <Container className={classes.featurecontainer} >
+        <Container >
         
          <Grid container spacing={4}>
           

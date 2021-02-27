@@ -14,6 +14,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import PersonIcon from '@material-ui/icons/Person';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Pop from './dashboardPopup'
+import Instructors from '../Instructor/ListOfIinstructor'
+import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -36,6 +39,7 @@ const useStyles = makeStyles((theme) =>
     expandOpen: {
       transform: 'rotate(180deg)',
     },
+    
     avatar: {
       backgroundColor: green[500],
     },
@@ -46,12 +50,13 @@ export default function Instructorfeature() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const popupInstructors = () => {
+    setExpanded(true);
   };
 
   return (
-    <Card className={classes.root}>
+    <Container>
+        <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -59,16 +64,19 @@ export default function Instructorfeature() {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+          <IconButton aria-label="settings" onClick={popupInstructors}>
+            <MoreVertIcon  />
           </IconButton>
         }
         title="Instructors"
         subheader="September 14, 2016"
       />
       
-            <CardContent>
-             <PersonIcon fontSize='large'/>
+      <CardContent>
+        <Box textAlign={"center"}>
+           <PersonIcon fontSize='large'/>
+        </Box>
+          
           </CardContent>
 
       <CardActions disableSpacing>
@@ -77,7 +85,7 @@ export default function Instructorfeature() {
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
-              </IconButton>
+         </IconButton>
               <Box>
                <Typography variant="body2" color="textSecondary" component="span">
                   Profile
@@ -85,7 +93,13 @@ export default function Instructorfeature() {
               </Box>
    
       </CardActions>
-        
-    </Card>
+      
+
+      </Card>
+      {expanded ?  <Pop open={expanded} show={ <Instructors /> }/>:undefined}
+     
+    </Container>
+  
+
   );
 }

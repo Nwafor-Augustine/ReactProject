@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import BasicTable from '../Library/showLibrary'
+import BasicTable from './basicTableForEachBook'
 
 
 let ListOfBooks = (props) => (

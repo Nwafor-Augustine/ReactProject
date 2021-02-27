@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import {IconButton} from '@material-ui/core';
-import {Container,Grid} from '@material-ui/core';
-
+import {Container,Grid,Box} from '@material-ui/core';
+import {green} from '@material-ui/core/colors';
 
 
 
@@ -23,24 +23,25 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+     color: "green"
   },
   
   link: {
        marginRight: theme.spacing(2),
-    backgroundColor: "#03A61C",
+      backgroundColor: "#03A61C",
           
   },
 
   
     bkgColor: {
 
-      backgroundColor: "green"
+      backgroundColor:"white"
       
   },
     
    login:{
-    backgroundColor: "white",
-    color:"black"
+    backgroundColor: green[500],
+    color:"white"
    }
    
 }));
@@ -71,8 +72,10 @@ let Header = (props)=> {
                     
                     </Grid>
                  
-                    <Grid item sm={12}  md={1} lg={1}>
-                     <Button variant="contained" className={classes.login}>Login</Button>
+                  <Grid item sm={12} md={1} lg={1}>
+                
+                    <Button variant="contained" className={classes.login}>Logout</Button>
+                  
                     </Grid>
                      
                   </Grid>

@@ -67,8 +67,11 @@ export default function Semesterfeature() {
         subheader="September 14, 2016"
       />
       
-            <CardContent>
-             <SchoolIcon fontSize='large'/>
+      <CardContent>
+        <Box textAlign={"center"} >
+         <SchoolIcon fontSize='large'/>
+        </Box>
+            
           </CardContent>
 
       <CardActions disableSpacing>

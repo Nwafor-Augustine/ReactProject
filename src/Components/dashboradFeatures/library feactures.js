@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) =>
       transform: 'rotate(180deg)',
     },
     avatar: {
-      backgroundColor: green[400],
+      backgroundColor:green[400],
     },
   }),
 );
@@ -68,8 +68,10 @@ export default function Libraryfeature() {
         subheader="September 14, 2016"
       />
       
-            <CardContent>
-             <LibraryBooksIcon fontSize='large'/>
+      <CardContent>
+        <Box textAlign={"center"}>
+         <LibraryBooksIcon fontSize='large'/>
+        </Box> 
           </CardContent>
 
       <CardActions disableSpacing>

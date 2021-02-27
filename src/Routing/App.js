@@ -8,7 +8,7 @@ import Library from '../Components/Library/librarypage'
 import Editpage from '../Components/Instructor/editInstructor'
 import DashboradPage from '../Components/dashboard/dashboardpage'
 import Header from '../Components/header/Header'
-import '../state/Store'
+
 
 
 import {BrowserRouter, Link,  Switch, Route } from 'react-router-dom'

@@ -1,5 +1,5 @@
 
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers,applyMiddleware } from 'redux'
 import{newSemester,semesterReducer}from './stateComponent/Semester'
 import{studentReducer,newStudent,removeStudent}from './stateComponent/Student'
 import{instructorReducer,newInstructor,removeInstructor}from './stateComponent/Instructor'
@@ -7,6 +7,7 @@ import { bookReducer ,addTextBooks, sortTextBooks,editTextBooks} from './stateCo
 import { filterStudent, filterByReducer } from './stateComponent/Filterstudent'
 import moment from 'moment'
 import Moment from 'react-moment';
+import thunk from 'redux-thunk'
 
 
 export let store = createStore(
@@ -21,7 +22,10 @@ export let store = createStore(
 
         }
         
-    ))
+    ),
+    applyMiddleware(thunk)
+
+)
 
         
 

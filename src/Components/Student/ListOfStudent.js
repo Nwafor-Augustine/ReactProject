@@ -1,6 +1,6 @@
 import React from 'react'
 import { removeStudent } from '../../state/stateComponent/Student'
-import BasicTable from './showStudent'
+import BasicTable from './basicTableForEachStudent'
 import {connect} from 'react-redux'
 
 let ListOfstudent = (props) => (

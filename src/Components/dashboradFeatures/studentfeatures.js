@@ -68,9 +68,12 @@ export default function Studentfeature() {
         subheader="September 14, 2016"
       />
       
-            <CardContent>
-             <PersonIcon fontSize='large'/>
-          </CardContent>
+      <CardContent>
+        <Box textAlign={"center"}>
+         <PersonIcon fontSize='large' />
+        </Box>
+            
+      </CardContent>
 
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">

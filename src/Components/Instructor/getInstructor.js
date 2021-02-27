@@ -1,11 +1,24 @@
 
 import React from 'react'
 import {newInstructor } from '../../state/stateComponent/Instructor'
-import { Button, Container, TextField,Avatar} from '@material-ui/core';
+import { Button, Container, TextField, Avatar, Box, Typography,ThemeProvider,createMuiTheme,Divider } from '@material-ui/core';
+import { green,blue,grey} from '@material-ui/core/colors';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import ResponsiveDialog from '../alertModal'
+import HomeloadingScreen from '../alertModal'
 import { connect } from 'react-redux'
 
+let theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: green[500],
+            textcolor:"white"
+            
+        },
+        secondary:{
+          main:blue[800]
+        }
+    }
+})
 
  class getInstructor extends React.Component{
     constructor(props) {
@@ -27,7 +40,7 @@ import { connect } from 'react-redux'
         this.Addinstructor = this.Addinstructor.bind(this)
         this.closeModalComfirm = this.closeModalComfirm.bind(this)
         this.closeModalCancel = this.closeModalCancel.bind(this)
-        this.comfirmAndAddInstructor = this.comfirmAndAddInstructor.bind(this)
+       
      
         
     }
@@ -73,46 +86,19 @@ import { connect } from 'react-redux'
        
      }
     
-    comfirmAndAddInstructor() {
+
+
+    Addinstructor() {
          
-        this.setState(() => (
+        
+     this.setState(() => (
             {
                  action: true,
             }
         ) 
             
          )
-         
-        
-       
-       
-        if (this.state.getInstructor) {
-            this.setState(() => (
-            {
-             getInstructor:0
-            }
-        ) 
             
-            )
-            
-        } else {
-            this.setState(() => (
-            {
-                    getInstructor: 1,
-                    action:false
-            }
-        ) 
-            
-            )
-            
-        }
-         
-    }
-
-    Addinstructor() {
-         
-        
-     this.comfirmAndAddInstructor()     
      
      
      
@@ -154,18 +140,23 @@ import { connect } from 'react-redux'
     render() {
         return (
            
-
-                 <Container>
-                <h1>Instructor</h1>
+            <ThemeProvider theme={theme}>
             
-                
-                     <React.Fragment>
+                 <Container >
+                       
+                 <Box textAlign={"right"}  height={40}  mt={12}  mb={5} color="green"  >
+                        <Typography variant={'body1'} >
+                        INSTRUCTOR
+                        </Typography>
+                    <Divider></Divider>
+                </Box>
+            
                     
              <label>
                     Name:
                      <TextField style={{ margin: 8 }} placeholder="Name" variant="outlined" fullWidth
                         margin="normal"
-                        color="secondary"
+                        color="primary"
                             onChange={this.onNameChange} 
                     />
              </label>
@@ -174,7 +165,7 @@ import { connect } from 'react-redux'
                     Department:
                     <TextField style={{ margin: 8 }} placeholder="Department" variant="outlined" fullWidth
                         margin="normal"
-                        color="secondary"
+                        color="primary"
                           onChange={this.onDepartmentChange} 
                     />
                 </label>
@@ -185,24 +176,27 @@ import { connect } from 'react-redux'
                     Salary:
                     <TextField style={{ margin: 8 }} placeholder="Salary" type="number" variant="outlined"
                         fullWidth
-                        color="secondary"
+                        color="primary"
                             margin="normal"
                         onChange={this.onSalaryChange}
                     />
                 </label>
-                    </React.Fragment>
                 
-
-              
                 
-                     <ResponsiveDialog openModal={this.state.action} closeModalComfirm={this.closeModalComfirm} closeModalCancel={this.closeModalCancel}/>
-                
-                    <Button variant="contained" color="primary" startIcon={<PersonAddIcon />} onClick={this.Addinstructor}>Add Instructor</Button>
+                     <HomeloadingScreen openModal={this.state.action} closeModalComfirm={this.closeModalComfirm} closeModalCancel={this.closeModalCancel} title={"Instructor"} message={"Comfirm the candidate as instructor"}/>
                     
-                   
                     
+                    <Box my={5}>
+                        <Button variant="contained" color="primary" startIcon={<PersonAddIcon />} onClick={this.Addinstructor}>Add Instructor
+                        </Button>
+                    
+                    </Box>      
               
             </Container>
+              
+            </ThemeProvider>
+                
+                
               
                 
                 

@@ -1,5 +1,5 @@
 import React from 'react'
-import BasicTable from './showSemester'
+import BasicTable from './basicTableForEachSemester'
 import {connect} from 'react-redux'
 
 
