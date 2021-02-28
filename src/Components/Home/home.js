@@ -22,14 +22,14 @@ let Home = () => {
         let classes = usestyle()
 
         return (
-            <main className={classes.root}>
+            <div className={classes.root}>
                 
                 <CssBaseline />
                 <ResponsiveDialog />
                 <Main/>
                 <Footer />
  
-            </main>
+            </div>
 
             
               

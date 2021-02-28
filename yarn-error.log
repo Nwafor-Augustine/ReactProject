@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: connect ENETUNREACH 104.16.25.35:443
+  Error: connect EHOSTUNREACH 104.16.18.35:443
       at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1144:16)
 
 npm manifest: 

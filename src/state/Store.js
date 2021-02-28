@@ -5,7 +5,8 @@ import{studentReducer,newStudent,removeStudent}from './stateComponent/Student'
 import{instructorReducer,newInstructor,removeInstructor}from './stateComponent/Instructor'
 import { bookReducer ,addTextBooks, sortTextBooks,editTextBooks} from './stateComponent/Library'
 import { filterStudent, filterByReducer } from './stateComponent/Filterstudent'
-import firebase from '../Components/firebase/firebase'
+// import  * as firebase from 'firebase';
+
 import thunk from 'redux-thunk'
 
 
@@ -26,20 +27,19 @@ export let store = createStore(
 
 )
 
-        
-firebase.auth.onAuthStateChanged((user) => {
-    if (user) {
-        console.log('login')
-    } else {
-        console.log('logout')
-    }
-})
-  
+// firebase.auth().onAuthStateChanged(function(user) {
+//   if (user) {
+//     console.log(' User is signed in.')
+//   } else {
+//     console.log(' User is signed out.')
+//   }
+// });
 
 
-store.subscribe(() => {
-     console.log(store.getState())
- })
+
+// store.subscribe(() => {
+//      console.log(store.getState())
+//  })
 
 
 

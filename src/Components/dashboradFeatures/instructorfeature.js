@@ -16,7 +16,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Pop from './dashboardPopup'
 import Instructors from '../Instructor/ListOfIinstructor'
-import { Container } from '@material-ui/core';
+
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -55,7 +55,6 @@ export default function Instructorfeature() {
   };
 
   return (
-    <Container>
         <Card className={classes.root}>
       <CardHeader
         avatar={
@@ -96,9 +95,9 @@ export default function Instructorfeature() {
       
 
       </Card>
-      {expanded ?  <Pop open={expanded} show={ <Instructors /> }/>:undefined}
+      
      
-    </Container>
+   
   
 
   );

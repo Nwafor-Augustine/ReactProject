@@ -119,7 +119,7 @@ class Semester extends React.Component {
 
              <label>
                     Period:
-                    <TextField style={{ margin: 8 }} placeholder="Salary" type="text" variant="outlined"
+                    <TextField  placeholder="Salary" type="text" variant="outlined"
                         fullWidth
                         color="primary"
                         margin="normal"
@@ -130,7 +130,7 @@ class Semester extends React.Component {
 
              <label>
                     Year:
-                    <TextField style={{ margin: 8 }} placeholder="Salary" type="text" variant="outlined"
+                    <TextField  placeholder="Salary" type="text" variant="outlined"
                         fullWidth
                         color="primary"
                             margin="normal"

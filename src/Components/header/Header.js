@@ -1,14 +1,14 @@
 
 
 import React from 'react'
-import Nav from './navigation'
+import {Nav} from './navigation'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
-import {IconButton} from '@material-ui/core';
+import {IconButton,Fade} from '@material-ui/core';
 import {Container,Grid,Box} from '@material-ui/core';
 import {green} from '@material-ui/core/colors';
 
@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(2),
     color: "white",
     textDecoration:"none"
+  },
+  root:{
+      width:"100%"
   },
   title: {
     flexGrow: 1,
@@ -40,8 +43,11 @@ const useStyles = makeStyles((theme) => ({
   },
     
    login:{
-    backgroundColor: green[500],
-    color:"white"
+   
+     color: green[500],
+     float:"right"
+    
+    
    }
    
 }));
@@ -59,35 +65,54 @@ let Header = (props)=> {
           
             <Container >
              <AppBar position="fixed" className={classes.bkgColor}  >   
-                    <Toolbar>
-                  <Grid container >
-                  <Grid item sm={12} md={5} lg={6} >
+              <Toolbar>
+
+                
+          
+                <Grid container>
+                  <Grid item xs={6} lg={6} md={6}>
                      
-                       <Typography variant="h6" className={classes.title}>
-                       {props.check ? <IconButton><MenuIcon /></IconButton>:undefined}
+                    <Typography variant="h6" className={classes.title}>
+                      
+                      <Fade in={true}>
+                         <IconButton>
+                          <MenuIcon/>
+                         </IconButton>
+                      </Fade>
+                     
+                     
                           Jbee School
                         </Typography>
                   </Grid>
-                     <Grid item sm={12}   md={6} lg={5}>
+                   
+                   
+                  <Grid item lg={4} md={4}>
+                  
+                    <Fade in={false}>
                     
-                    </Grid>
-                 
-                  <Grid item sm={12} md={1} lg={1}>
-                
-                    <Button variant="contained" className={classes.login}>Logout</Button>
+                      <Nav />
+                      
+                    </Fade>
+                    
+                    
+                  </Grid>
+
+
+                    <Grid item xs={6} lg={2} md={2}>
+                      
+                    <Button variant="text" className={classes.login}>SIGN UP</Button>
                   
                     </Grid>
                      
-                  </Grid>
+                </Grid>
                         
+                
+                  
                      
                        
                    </Toolbar>
             </AppBar>
-            {
-                      
-                   props.check ? props.nav:undefined
-                      }
+          
             </Container>
 
             

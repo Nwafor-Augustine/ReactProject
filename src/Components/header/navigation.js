@@ -1,4 +1,4 @@
-import { Link, BrowserRouter as Router } from 'react-router-dom'
+import { NavLink, BrowserRouter as Router } from 'react-router-dom'
 import React from 'react'
 import {Box,Grid,makeStyles,createStyles} from '@material-ui/core'
 
@@ -29,24 +29,24 @@ export let Nav = () => {
             
        return <Router >
                 <Grid className={classes.nav}>
-                       <Box mr={3}>
-                       <Link to="/" className={classes.navLink}>Home</Link>
+                       <Box mr={5}>
+                       <NavLink to="/" className={classes.navLink} exact={true}>Home</NavLink>
                        </Box>
                        
-                       <Box mr={3}>
-                               <Link to="/student" className={classes.navLink}>Student</Link>
+                       <Box mr={5}>
+                               <NavLink to="/student" className={classes.navLink} exact={true}>Student</NavLink>
                        </Box>
                       
-                       <Box mr={3}>
-                               <Link to="/instructor" className={classes.navLink}>Instructor</Link>
+                       <Box mr={5}>
+                               <NavLink to="/instructor" className={classes.navLink} exact={true}>Instructor</NavLink>
                        </Box>
 
-                       <Box mr={3}>
-                               <Link to="/section" className={classes.navLink}>Section</Link>
+                       <Box mr={5}>
+                               <NavLink to="/section" className={classes.navLink} exact={true}>Section</NavLink>
                        </Box>
 
                        <Box>
-                               <Link to="/library" className={classes.navLink}>Library</Link>
+                               <NavLink to="/library" className={classes.navLink} exact={true}>Library</NavLink>
                        </Box>
                       
                        

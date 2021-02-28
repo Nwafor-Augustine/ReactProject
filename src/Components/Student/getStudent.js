@@ -141,7 +141,7 @@ closeModalCancel() {
                     
                 <label>
                     Name:
-                    <TextField type="text" style={{ margin: 8 }} placeholder="Department" variant="outlined" fullWidth
+                    <TextField type="text"  placeholder="Department" variant="outlined" fullWidth
                         margin="normal"
                         color="primary"
                           onChange={this.nameOnChange} 
@@ -151,7 +151,7 @@ closeModalCancel() {
 
                 <label>
                     Department:
-                    <TextField type="text" style={{ margin: 8 }} placeholder="Department" variant="outlined" fullWidth
+                    <TextField type="text"  placeholder="Department" variant="outlined" fullWidth
                         margin="normal"
                         color="primary"
                           onChange={this.departmentOnChange} 

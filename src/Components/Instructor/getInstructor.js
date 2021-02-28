@@ -154,7 +154,7 @@ let theme = createMuiTheme({
                     
              <label>
                     Name:
-                     <TextField style={{ margin: 8 }} placeholder="Name" variant="outlined" fullWidth
+                     <TextField placeholder="Name" variant="outlined" fullWidth
                         margin="normal"
                         color="primary"
                             onChange={this.onNameChange} 
@@ -163,7 +163,7 @@ let theme = createMuiTheme({
             
                  <label>
                     Department:
-                    <TextField style={{ margin: 8 }} placeholder="Department" variant="outlined" fullWidth
+                    <TextField  placeholder="Department" variant="outlined" fullWidth
                         margin="normal"
                         color="primary"
                           onChange={this.onDepartmentChange} 
@@ -174,7 +174,7 @@ let theme = createMuiTheme({
 
                  <label>
                     Salary:
-                    <TextField style={{ margin: 8 }} placeholder="Salary" type="number" variant="outlined"
+                    <TextField  placeholder="Salary" type="number" variant="outlined"
                         fullWidth
                         color="primary"
                             margin="normal"

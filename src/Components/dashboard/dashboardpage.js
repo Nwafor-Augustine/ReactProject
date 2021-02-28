@@ -80,8 +80,7 @@ const useStyles = makeStyles((theme) =>
     },
 
     loginbtn: {
-      color:"white",
-      backgroundColor: green[500],
+      color:green[500],
       float: "right",
       
     },
@@ -97,13 +96,14 @@ const useStyles = makeStyles((theme) =>
 
 
  function DashboradPage(props) {
-    let matches = useMediaQuery('(min-width:700px)');
+    let matches = useMediaQuery('(min-width:900px)');
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
+   const handleDrawerToggle = () => {
+    console.log(props)
     setMobileOpen(!mobileOpen);
   };
 
@@ -211,15 +211,14 @@ const useStyles = makeStyles((theme) =>
           </IconButton>
                   
            <Grid container >
-                   <Grid item sm={10} lg={6} >
+                   <Grid item xs={10} lg={10} >
                           {matches ? <Nav />: undefined}  
                   </Grid> 
             
-                   <Grid item lg={4} >
-            
-                   </Grid>
-                   <Grid item sm={2}  lg={2}>
-                        <Button variant="contained" onClick={props.logIn} className={classes.loginbtn}>Logout</Button>     
+                 
+                   <Grid item xs={2}  lg={2}>
+              <Button variant="text" onClick={props.logIn} className={classes.loginbtn}>SIGN UP</Button>    
+              {console.log(props)}
                   </Grid> 
          
            </Grid>  
@@ -270,32 +269,32 @@ const useStyles = makeStyles((theme) =>
 
 
 
-    <main className={classes.content}>
 
-      <Container >
+
+      <Container className={classes.content}>
         
          <Grid container spacing={4}>
           
-                    <Grid item lg={6}>
+                    <Grid item lg={6} md={6} sm={12}  xs={12}>
                         <Studentfeature />
                     </Grid>
 
-                    <Grid item lg={6}>
+                    <Grid item lg={6} md={6} sm={12} xs={12}>
                        <Instructorfeature />
                     </Grid>
 
-                    <Grid item lg={6}>
+                    <Grid item lg={6} md={6} sm={12} xs={12}>
                         <Libraryfeature/>
                     </Grid>
 
-                    <Grid item lg={6}>
+                    <Grid item lg={6} md={6} sm={12} xs={12}>
                        <Semesterfeature />
                     </Grid>
     
           </Grid>
           
       </Container>
-    </main>
+   
     </div>
   );
 }

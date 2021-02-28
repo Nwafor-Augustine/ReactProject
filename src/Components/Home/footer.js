@@ -1,11 +1,12 @@
 import React from 'react'
-import {makeStyles} from '@material-ui/core'
+import {makeStyles,Container} from '@material-ui/core'
 
 
 
 let usestyle = makeStyles({
     root: {
         height: "250px",
+        maxWidth:"100%",
         backgroundColor:"black",
         opacity: .7,
         
@@ -17,8 +18,8 @@ let usestyle = makeStyles({
 export const Footer = () => {
    let classes = usestyle()
     return (
-        <div className={classes.root}>
+        <Container className={classes.root}>
         
-        </div>
+        </Container>
     )
 }

@@ -139,7 +139,7 @@ closeModalComfirm() {
                 
                 <label>
                     Name:
-                     <TextField style={{ margin: 8 }}  type="text"placeholder="Name" variant="outlined" fullWidth
+                     <TextField   type="text"placeholder="Name" variant="outlined" fullWidth
                         margin="normal"
                         color="primary"
                         onChange={this.nameChangeUpdate} 
@@ -149,7 +149,7 @@ closeModalComfirm() {
                    
                <label>
                     Author:
-                     <TextField style={{ margin: 8 }}  type="text"placeholder="Author" variant="outlined" fullWidth
+                     <TextField type="text"placeholder="Author" variant="outlined" fullWidth
                         margin="normal"
                         color="primary"
                          onChange={this.authorChangeUpdate} 
@@ -160,7 +160,7 @@ closeModalComfirm() {
                  
                      <label>
                     ISBN:
-                     <TextField style={{ margin: 8 }}  type="text"placeholder="ISBN" variant="outlined" fullWidth
+                     <TextField  type="text"placeholder="ISBN" variant="outlined" fullWidth
                         margin="normal"
                         color="primary"
                           onChange={this.isbnChangeUpdate} 
