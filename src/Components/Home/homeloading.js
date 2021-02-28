@@ -10,6 +10,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -17,26 +18,21 @@ const useStyles = makeStyles((theme) =>
       zIndex: theme.zIndex.drawer + 1,
       color: '#fff',
     },
+    header: {
+      backgroundColor: green[500],
+      height: "50px",
+      margin:"10px 10px 0px 10px"
+    },
+    text:{
+      paddingTop:"20px"
+    },
+
+    button: {
+      color:green[500],
+    }
   }),
 );
 
-export default function HomeloadingScreen() {
-  const classes = useStyles();
- 
-    const [open, setOpen] = React.useState(true);
- 
-    const handleClose = () => {
-    setOpen(false);
-  };
- 
-  return (
-    <div>
-      <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-              <ResponsiveDialog/>
-      </Backdrop>
-    </div>
-  );
-}
 
 
 
@@ -44,12 +40,12 @@ export default function HomeloadingScreen() {
 
 
 
-
-let  ResponsiveDialog = () =>{
+ const   ResponsiveDialog = () =>{
   const [open, setOpen] = React.useState(true);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-
+  const classes = useStyles();
+  
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -66,17 +62,17 @@ let  ResponsiveDialog = () =>{
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
       >
-        <DialogTitle id="responsive-dialog-title">{"Status"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-title" className={classes.header}>{"Status"}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
+          <DialogContentText className={classes.text}>
          Sign up to my 'Reactjs School Management'
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button  onClick={handleClose} color="primary">
+          <Button  onClick={handleClose} className={classes.button}>
             Login
           </Button>
-          <Button onClick={handleClose} color="primary" >
+          <Button onClick={handleClose} className={classes.button} >
             Signup
           </Button>
         </DialogActions>
@@ -84,3 +80,5 @@ let  ResponsiveDialog = () =>{
     </div>
   );
 }
+
+export default   ResponsiveDialog 

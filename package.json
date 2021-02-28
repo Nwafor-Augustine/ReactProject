@@ -23,6 +23,7 @@
     "bootstrap": "^4.6.0",
     "css-loader": "^5.0.2",
     "file-loader": "^6.2.0",
+    "firebase": "^8.2.9",
     "i": "^0.3.6",
     "modal": "^1.2.0",
     "moment": "^2.29.1",

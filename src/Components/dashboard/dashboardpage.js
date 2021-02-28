@@ -28,20 +28,26 @@ import ListItem from '@material-ui/core/ListItem';
 import SchoolIcon from '@material-ui/icons/School';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
-import  MenuIcon from '@material-ui/icons/Menu'
+import MenuIcon from '@material-ui/icons/Menu'
+import {connect} from 'react-redux'
+import { startLoginAccount } from '../firebase/actions'
+
 const drawerWidth = 250;
+
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       display: 'flex',
     },
+
     drawer: {
       [theme.breakpoints.up('sm')]: {
         width: drawerWidth,
         flexShrink: 0,
       },
     },
+
     appBar: {
       [theme.breakpoints.up('sm')]: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -62,6 +68,7 @@ const useStyles = makeStyles((theme) =>
     drawerPaper: {
       width: drawerWidth,
     },
+
     content: {
       flexGrow: 1,
       marginTop:"12vh"
@@ -89,7 +96,7 @@ const useStyles = makeStyles((theme) =>
 
 
 
-export default function DashboradPage(props) {
+ function DashboradPage(props) {
     let matches = useMediaQuery('(min-width:700px)');
   const { window } = props;
   const classes = useStyles();
@@ -156,25 +163,32 @@ export default function DashboradPage(props) {
       </List>
    
       <Divider />
+
       <List>
+        
          <ListItem button>
           <ListItemIcon>
             <InfoIcon />
           </ListItemIcon>
           <ListItemText primary="About"  className={classes. navigationColor} />
         </ListItem>
+
+
          <ListItem button>
           <ListItemIcon>
             <ContactSupportIcon  />
           </ListItemIcon>
           <ListItemText primary="Contact"  className={classes. navigationColor} />
         </ListItem>
+
+        
          <ListItem button>
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
           <ListItemText primary="Features" className={classes. navigationColor} />
         </ListItem>
+
       </List>
     </div>
   );
@@ -182,40 +196,41 @@ export default function DashboradPage(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <div className={classes.root}>
+<div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+  <AppBar position="fixed" className={classes.appBar}>
+       <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
             className={classes.menuButton}
-          >
+            >
             <MenuIcon />
-            </IconButton>
+          </IconButton>
                   
-                  <Grid container >
+           <Grid container >
                    <Grid item sm={10} lg={6} >
-                        
                           {matches ? <Nav />: undefined}  
-                     </Grid> 
+                  </Grid> 
             
-            <Grid item lg={4} >
+                   <Grid item lg={4} >
             
-            </Grid>
+                   </Grid>
                    <Grid item sm={2}  lg={2}>
-                        <Button variant="contained" className={classes.loginbtn}>Logout</Button>     
+                        <Button variant="contained" onClick={props.logIn} className={classes.loginbtn}>Logout</Button>     
                   </Grid> 
          
-                  </Grid>  
-                   
-        </Toolbar>
-      </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
+           </Grid>  
+         </Toolbar>
+  </AppBar>
+
+
+ <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
+      
+      <Hidden smUp implementation="css">
           <Drawer
             container={container}
             variant="temporary"
@@ -228,12 +243,16 @@ export default function DashboradPage(props) {
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}
-          >
+            >
+
+            
             {drawer}
           </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
+      </Hidden>
+
+
+      <Hidden xsDown implementation="css">
+        <Drawer
             classes={{
               paper: classes.drawerPaper,
             }}
@@ -241,50 +260,56 @@ export default function DashboradPage(props) {
             open
           >
             {drawer}
-          </Drawer>
+        </Drawer>
         </Hidden>
-      </nav>
-      <main className={classes.content}>
         
-       
-        {
-        //   <div>
-        //    
-        //  <ListOfBooks />
-        // <ListOfsemester />
-        // <ListOfstudent />
-        //   </div>
-       
-        }
-        <Container >
+
+  </nav>
+
+
+
+
+
+    <main className={classes.content}>
+
+      <Container >
         
          <Grid container spacing={4}>
           
-          <Grid item lg={6}>
-          <Studentfeature />
-          </Grid>
+                    <Grid item lg={6}>
+                        <Studentfeature />
+                    </Grid>
 
-          <Grid item lg={6}>
-           <Instructorfeature />
-          </Grid>
+                    <Grid item lg={6}>
+                       <Instructorfeature />
+                    </Grid>
 
-          <Grid item lg={6}>
-          <Libraryfeature/>
-          </Grid>
+                    <Grid item lg={6}>
+                        <Libraryfeature/>
+                    </Grid>
 
-          <Grid item lg={6}>
-           <Semesterfeature />
-          </Grid>
+                    <Grid item lg={6}>
+                       <Semesterfeature />
+                    </Grid>
     
-        </Grid>
-        </Container>
-       
-      
-      </main>
+          </Grid>
+          
+      </Container>
+    </main>
     </div>
   );
 }
 
+
+
+
+export default connect(undefined,()=>{
+
+  return {
+     logIn: ()=> dispatch(startLoginAccount)
+  }
+
+})(DashboradPage)
 
 
 
