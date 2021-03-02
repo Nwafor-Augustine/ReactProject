@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) =>
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
    const handleDrawerToggle = () => {
-    console.log(props)
+    
     setMobileOpen(!mobileOpen);
   };
 
@@ -208,17 +208,20 @@ const useStyles = makeStyles((theme) =>
             className={classes.menuButton}
             >
             <MenuIcon />
+           
           </IconButton>
                   
-           <Grid container >
-                   <Grid item xs={10} lg={10} >
-                          {matches ? <Nav />: undefined}  
-                  </Grid> 
+          <Grid container >
             
+            <Grid item xs={4}  lg={10}  >
+                          
+            </Grid> 
+            
+             
                  
-                   <Grid item xs={2}  lg={2}>
-              <Button variant="text" onClick={props.logIn} className={classes.loginbtn}>SIGN UP</Button>    
-              {console.log(props)}
+                   <Grid item xs={8} lg={2} >
+              <Button variant="text" onClick={props.logIn} className={classes.loginbtn}>SIGN Up</Button>    
+              
                   </Grid> 
          
            </Grid>  
@@ -302,10 +305,10 @@ const useStyles = makeStyles((theme) =>
 
 
 
-export default connect(undefined,()=>{
+export default connect(undefined,(dispatch)=>{
 
   return {
-     logIn: ()=> dispatch(startLoginAccount)
+     logIn: ()=> dispatch(startLoginAccount())
   }
 
 })(DashboradPage)

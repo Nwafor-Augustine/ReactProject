@@ -1,6 +1,6 @@
 
 
-import React from 'react'
+import React,{useState} from 'react'
 import {Nav} from './navigation'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -9,8 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import {IconButton,Fade} from '@material-ui/core';
-import {Container,Grid,Box} from '@material-ui/core';
-import {green} from '@material-ui/core/colors';
+import {Container,Grid,Box, Hidden} from '@material-ui/core';
+import { green } from '@material-ui/core/colors';
+
 
 
 
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       width:"100%"
   },
   title: {
-    flexGrow: 1,
+ 
      color: "green"
   },
   
@@ -45,9 +46,19 @@ const useStyles = makeStyles((theme) => ({
    login:{
    
      color: green[500],
-     float:"right"
+     float: "right",
+     fontSize: "0.9rem",
+     fontWeight:600,
+     "&:hover": {
+                color: "white",
+                backgroundColor:green[500]
+       }
     
     
+  },
+   
+  menuChangDir: {
+      
    }
    
 }));
@@ -56,7 +67,10 @@ const useStyles = makeStyles((theme) => ({
 let Header = (props)=> {
     
     const classes = useStyles();
-        
+  let [open, setopen] = useState(false)
+  let openMobile = () => {
+    setopen(!open)
+  }
         return (
         
               
@@ -70,29 +84,28 @@ let Header = (props)=> {
                 
           
                 <Grid container>
+                  
                   <Grid item xs={6} lg={6} md={6}>
-                     
-                    <Typography variant="h6" className={classes.title}>
+                      <Hidden mdUp implementation="css" >
+                               <IconButton onClick={openMobile} >
+                                 <MenuIcon />
+                               </IconButton>
+                              
+                      </Hidden>
+                    <Hidden smDown implementation="css" >
                       
-                      <Fade in={true}>
-                         <IconButton>
-                          <MenuIcon/>
-                         </IconButton>
-                      </Fade>
-                     
-                     
-                          Jbee School
-                        </Typography>
+                         <Typography variant="h6" className={classes.title} >
+                        Jbee School
+                         </Typography>  
+                     </Hidden>
+                          
+                    
                   </Grid>
                    
                    
                   <Grid item lg={4} md={4}>
                   
-                    <Fade in={false}>
-                    
-                      <Nav />
-                      
-                    </Fade>
+                   <Nav openMobileNav={openMobile} open={open}/>
                     
                     
                   </Grid>
@@ -100,7 +113,7 @@ let Header = (props)=> {
 
                     <Grid item xs={6} lg={2} md={2}>
                       
-                    <Button variant="text" className={classes.login}>SIGN UP</Button>
+                    <Button variant="text" className={classes.login}>SIGN OUT</Button>
                   
                     </Grid>
                      

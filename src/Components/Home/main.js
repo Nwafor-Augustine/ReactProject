@@ -3,7 +3,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import  img0 from '../../images/helena-lopes-UZe35tk5UoA-unsplash.jpg'
 import img1 from '../../images/javier-trueba-iQPr1XkF5F0-unsplash.jpg'
-import { Grid, Typography, Avatar, Box, IconButton ,makeStyles, Container,Divider,Paper } from '@material-ui/core'
+import { Grid, Typography, Avatar, Box, IconButton ,makeStyles, Container,Divider,Paper, Button } from '@material-ui/core'
 import {green} from '@material-ui/core/colors'
 import zIndex from '@material-ui/core/styles/zIndex';
 
@@ -213,7 +213,26 @@ let usestyle = makeStyles(theme =>({
         
 
        
+    },
+    registerbtn: {
+        marginTop: "30vh",
+        textAlign: "center",
+           
+    },
+
+    registerInnerText: {
+        color: green[500],
+        fontSize: "1.1rem",
+        backgroundColor: "white",
+        padding: 10,
+            "&:hover": {
+                color: "white",
+                backgroundColor:green[500]
+       }
+        
     }
+
+
   
 }))
 
@@ -236,9 +255,13 @@ export const Main = () => {
                                 <Typography  variant="h3"  className={classes.intro}>
                                     My React School Management System <br></br>
                                     With Firebase Authentication
+                                <IconButton>
+                                
+                                </IconButton>
                                 </Typography>
                             </Grid>
-                            <Grid item lg={3}></Grid>
+                        <Grid item lg={3}></Grid>
+                        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.registerbtn}><Button variant="outlined" className={classes.registerInnerText}>Register</Button></Grid>
                         </Grid>
                  
                 </Container>

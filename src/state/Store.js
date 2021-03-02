@@ -1,11 +1,12 @@
 
 import { createStore, combineReducers,applyMiddleware } from 'redux'
-import{newSemester,semesterReducer}from './stateComponent/Semester'
-import{studentReducer,newStudent,removeStudent}from './stateComponent/Student'
-import{instructorReducer,newInstructor,removeInstructor}from './stateComponent/Instructor'
-import { bookReducer ,addTextBooks, sortTextBooks,editTextBooks} from './stateComponent/Library'
-import { filterStudent, filterByReducer } from './stateComponent/Filterstudent'
-// import  * as firebase from 'firebase';
+import{semesterReducer}from './stateComponent/Semester'
+import{studentReducer}from './stateComponent/Student'
+import{instructorReducer}from './stateComponent/Instructor'
+import { bookReducer } from './stateComponent/Library'
+import { filterByReducer } from './stateComponent/Filterstudent'
+import firebase from '../Components/firebase/firebase'
+
 
 import thunk from 'redux-thunk'
 
@@ -27,19 +28,23 @@ export let store = createStore(
 
 )
 
-// firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     console.log(' User is signed in.')
-//   } else {
-//     console.log(' User is signed out.')
-//   }
-// });
+let user1 =  firebase.auth().currentUser
+
+firebase.auth().onAuthStateChanged(function (user) {
+ 
+    if (user) {
+       console.log(user)
+  
+  } else {
+   
+      console.log("sign out",user)
+  }
+    
+})
 
 
 
-// store.subscribe(() => {
-//      console.log(store.getState())
-//  })
+
 
 
 
