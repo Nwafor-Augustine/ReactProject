@@ -95,7 +95,7 @@ let Header = (props)=> {
                     <Hidden smDown implementation="css" >
                       
                          <Typography variant="h6" className={classes.title} >
-                        Jbee School
+                        Jbee
                          </Typography>  
                      </Hidden>
                           

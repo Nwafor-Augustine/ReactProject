@@ -33,8 +33,8 @@ let usestlye = makeStyles((theme) =>createStyles({
       ,
         title: {
           
-     padding:"8% 0%",
-                color: "green",
+     padding:"6% 0%",
+     color: "green",
      textAlign:"center"
   }
          
@@ -65,37 +65,36 @@ export let Nav = (props) => {
              <NavLink to="/" className={classes.navLink} exact={true}>Home</NavLink>
            
         </ListItem>
-      <Divider />
+     
                                 
         <ListItem button>
           
            <NavLink to="/dashboard" className={classes.navLink} exact={true}>Dashboard</NavLink>
         </ListItem>
 
-          <Divider />
+         
         
          <ListItem button>
               <NavLink to="/student" className={classes.navLink} exact={true}>Student</NavLink>
         </ListItem>
 
-                                   <Divider />
+                                  
         
          <ListItem button >
             <NavLink to="/instructor" className={classes.navLink} exact={true}>Instructor</NavLink>
         </ListItem>
 
-          <Divider />
         
         <ListItem button>
               <NavLink to="/section" className={classes.navLink} exact={true}>Section</NavLink> 
          </ListItem>
                                 
-         <Divider />
+     
                                 
         <ListItem button>
             <NavLink to="/library" className={classes.navLink} exact={true}>Library</NavLink>
         </ListItem>
-                                
+             <Divider />                       
       </List>
    
     </div>  
