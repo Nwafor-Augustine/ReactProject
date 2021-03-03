@@ -9,9 +9,10 @@ import Editpage from '../Components/Instructor/editInstructor'
 import DashboradPage from '../Components/dashboard/dashboardpage'
 import Header from '../Components/header/Header'
 
+export let history = require("history").createBrowserHistory(History)
 
 
-import {BrowserRouter, Link,  Switch, Route } from 'react-router-dom'
+import {Router, Link,  Switch, Route } from 'react-router-dom'
 
 
 
@@ -20,7 +21,7 @@ const App = () => {
     return (
         <div>
           <Header/>
-            <BrowserRouter >
+            <Router history={history} >
           <Switch>
                     <Route path="/dashboard" component={DashboradPage} exact={true}/>
                     <Route path="/" component={Home} exact={true}/>
@@ -33,7 +34,7 @@ const App = () => {
                     
                     <Route  component={ErorPage} />
                  </Switch>
-            </BrowserRouter>
+            </Router>
        
 
      </div>

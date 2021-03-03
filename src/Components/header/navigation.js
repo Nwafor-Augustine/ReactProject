@@ -1,7 +1,12 @@
 import { NavLink, BrowserRouter as Router } from 'react-router-dom'
 import React from 'react'
+import HomeIcon from '@material-ui/icons/Home';
+import  Dashboard from '@material-ui/icons/Dashboard'
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
+import PersonIcon from '@material-ui/icons/Person';
+import SchoolIcon from '@material-ui/icons/School';
 import { Box, Grid, makeStyles, createStyles,Hidden, Drawer,Divider,IconButton,List,ListItem,Typography} from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
+import { green} from '@material-ui/core/colors';
 
 let usestlye = makeStyles((theme) =>createStyles({
                  
@@ -15,15 +20,16 @@ let usestlye = makeStyles((theme) =>createStyles({
         },
         
         toolbar: theme.mixins.toolbar,
-    drawerPaper: {
-      width: 250,
+           drawerPaper: {
+            width: 250,
+            
     },
 
            navLink: {
                    textDecoration: "none",
                    color: "green",
                    fontSize: '1rem',
-                   margin:"5% 0%",
+                   margin:"5% 0% 5% 5%",
                    fontFamily: "Roboto",
                    fontWeight: "lighter",
                   
@@ -34,11 +40,11 @@ let usestlye = makeStyles((theme) =>createStyles({
         title: {
           
      padding:"6% 0%",
-     color: "green",
+     color:green[500],
      textAlign:"center"
-  }
+  },
          
-
+     
 
 })
 
@@ -62,36 +68,41 @@ export let Nav = (props) => {
        <List component="nav" aria-label="dashboard navigation">
        
         <ListItem button>
+      
+             <HomeIcon/>
              <NavLink to="/" className={classes.navLink} exact={true}>Home</NavLink>
            
         </ListItem>
      
                                 
         <ListItem button>
-          
+           <Dashboard/>
            <NavLink to="/dashboard" className={classes.navLink} exact={true}>Dashboard</NavLink>
         </ListItem>
 
          
         
          <ListItem button>
+               <PersonIcon/>
               <NavLink to="/student" className={classes.navLink} exact={true}>Student</NavLink>
         </ListItem>
 
                                   
         
          <ListItem button >
+            <PersonIcon/>                    
             <NavLink to="/instructor" className={classes.navLink} exact={true}>Instructor</NavLink>
-        </ListItem>
-
-        
-        <ListItem button>
+         </ListItem>
+                                
+         <ListItem button>
+              <SchoolIcon/>
               <NavLink to="/section" className={classes.navLink} exact={true}>Section</NavLink> 
          </ListItem>
                                 
      
                                 
         <ListItem button>
+            <LibraryBooksIcon/>                       
             <NavLink to="/library" className={classes.navLink} exact={true}>Library</NavLink>
         </ListItem>
              <Divider />                       

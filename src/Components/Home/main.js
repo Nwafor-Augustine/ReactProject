@@ -6,6 +6,8 @@ import img1 from '../../images/javier-trueba-iQPr1XkF5F0-unsplash.jpg'
 import { Grid, Typography, Avatar, Box, IconButton ,makeStyles, Container,Divider,Paper, Button } from '@material-ui/core'
 import {green} from '@material-ui/core/colors'
 import zIndex from '@material-ui/core/styles/zIndex';
+import { startLoginAccount } from '../firebase/actions'
+import {connect} from 'react-redux'
 
 let usestyle = makeStyles(theme =>({
     root: {
@@ -241,7 +243,7 @@ let usestyle = makeStyles(theme =>({
 
 
 
-export const Main = () => {
+const Main = (props) => {
       let classes = usestyle()
     return (
 
@@ -261,7 +263,7 @@ export const Main = () => {
                                 </Typography>
                             </Grid>
                         <Grid item lg={3}></Grid>
-                        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.registerbtn}><Button variant="outlined" className={classes.registerInnerText}>Register</Button></Grid>
+                        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.registerbtn}><Button variant="outlined" className={classes.registerInnerText} onClick={props.logIn}>Register</Button></Grid>
                         </Grid>
                  
                 </Container>
@@ -386,3 +388,10 @@ export const Main = () => {
 
     )
 }
+export default connect(undefined,(dispatch)=>{
+
+  return {
+     logIn: ()=> dispatch(startLoginAccount())
+  }
+
+})(Main)

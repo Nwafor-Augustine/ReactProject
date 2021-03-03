@@ -5,9 +5,6 @@ import{studentReducer}from './stateComponent/Student'
 import{instructorReducer}from './stateComponent/Instructor'
 import { bookReducer } from './stateComponent/Library'
 import { filterByReducer } from './stateComponent/Filterstudent'
-import firebase from '../Components/firebase/firebase'
-
-
 import thunk from 'redux-thunk'
 
 
@@ -28,19 +25,8 @@ export let store = createStore(
 
 )
 
-let user1 =  firebase.auth().currentUser
 
-firebase.auth().onAuthStateChanged(function (user) {
- 
-    if (user) {
-       console.log(user)
-  
-  } else {
-   
-      console.log("sign out",user)
-  }
-    
-})
+
 
 
 

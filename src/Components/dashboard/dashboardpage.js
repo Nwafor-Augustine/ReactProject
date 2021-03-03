@@ -29,8 +29,8 @@ import SchoolIcon from '@material-ui/icons/School';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import MenuIcon from '@material-ui/icons/Menu'
-import {connect} from 'react-redux'
-import { startLoginAccount } from '../firebase/actions'
+
+
 
 const drawerWidth = 250;
 
@@ -220,7 +220,7 @@ const useStyles = makeStyles((theme) =>
              
                  
                    <Grid item xs={8} lg={2} >
-              <Button variant="text" onClick={props.logIn} className={classes.loginbtn}>SIGN Up</Button>    
+              <Button variant="text"  className={classes.loginbtn}>SIGN Up</Button>    
               
                   </Grid> 
          
@@ -305,13 +305,7 @@ const useStyles = makeStyles((theme) =>
 
 
 
-export default connect(undefined,(dispatch)=>{
-
-  return {
-     logIn: ()=> dispatch(startLoginAccount())
-  }
-
-})(DashboradPage)
+export default DashboradPage
 
 
 

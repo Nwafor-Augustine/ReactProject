@@ -134,7 +134,7 @@ closeModalCancel() {
                            
                  <Box textAlign={"right"}  height={40}  mt={8}  mb={5} color="green"  >
                         <Typography variant={'body1'} >
-                        INSTRUCTOR
+                         STUDENT
                         </Typography>
                     <Divider></Divider>
                     </Box>

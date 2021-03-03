@@ -18,8 +18,7 @@ let usestyle = makeStyles({
 export const Footer = () => {
    let classes = usestyle()
     return (
-        <Container className={classes.root}>
-        
-        </Container>
+        <div>
+        </div>
     )
 }

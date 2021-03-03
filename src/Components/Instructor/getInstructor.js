@@ -148,7 +148,7 @@ let theme = createMuiTheme({
                         <Typography variant={'body1'} >
                         INSTRUCTOR
                         </Typography>
-                    <Divider></Divider>
+                    <Divider/>
                 </Box>
             
                     
