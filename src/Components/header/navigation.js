@@ -5,7 +5,7 @@ import  Dashboard from '@material-ui/icons/Dashboard'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import SchoolIcon from '@material-ui/icons/School';
-import { Box, Grid, makeStyles, createStyles,Hidden, Drawer,Divider,IconButton,List,ListItem,Typography} from '@material-ui/core'
+import { Box, Grid, makeStyles, createStyles,Hidden, Drawer,Divider,IconButton,List,ListItem,Typography,ListItemIcon} from '@material-ui/core'
 import { green} from '@material-ui/core/colors';
 
 let usestlye = makeStyles((theme) =>createStyles({
@@ -68,33 +68,47 @@ export let Nav = (props) => {
        <List component="nav" aria-label="dashboard navigation">
                         
         <ListItem button>
-           <Dashboard/>
+        <ListItemIcon>
+          <Dashboard/>
+        </ListItemIcon>
+          
            <NavLink to="/dashboard" className={classes.navLink} exact={true}>Dashboard</NavLink>
         </ListItem>
 
          
         
          <ListItem button>
-               <PersonIcon/>
+              <ListItemIcon>
+                <PersonIcon/> 
+               </ListItemIcon>
               <NavLink to="/student" className={classes.navLink} exact={true}>Student</NavLink>
         </ListItem>
 
                                   
         
          <ListItem button >
-            <PersonIcon/>                    
+         <ListItemIcon>
+          <PersonIcon/> 
+          </ListItemIcon>
+                              
             <NavLink to="/instructor" className={classes.navLink} exact={true}>Instructor</NavLink>
          </ListItem>
                                 
-         <ListItem button>
-              <SchoolIcon/>
+                                <ListItem button>
+                                         <ListItemIcon>
+                                            <SchoolIcon/> 
+                                        </ListItemIcon>
+              
               <NavLink to="/section" className={classes.navLink} exact={true}>Section</NavLink> 
          </ListItem>
                                 
      
                                 
-        <ListItem button>
-            <LibraryBooksIcon/>                       
+                                <ListItem button>
+                                        <ListItemIcon>
+                                             <LibraryBooksIcon/>    
+                                        </ListItemIcon>
+                                  
             <NavLink to="/library" className={classes.navLink} exact={true}>Library</NavLink>
         </ListItem>
              <Divider />                       

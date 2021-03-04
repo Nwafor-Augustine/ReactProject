@@ -1,4 +1,5 @@
 import React from "react"
+import {NavLink} from 'react-router-dom'
 import {Nav} from '../header/navigation'
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -86,6 +87,7 @@ const useStyles = makeStyles((theme) =>
       
     },
     navigationColor: {
+      textDecoration:"none",
       color:green[500]
     }
      
@@ -124,7 +126,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <HomeIcon/>
           </ListItemIcon>
-          <ListItemText primary="Home"  className={classes. navigationColor}  />
+          <NavLink to="/dashboard" className={classes. navigationColor}  exact={true}>Dashboard</NavLink>
         </ListItem>
      
         
@@ -132,7 +134,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-          <ListItemText primary="Student"  className={classes. navigationColor}  />
+        <NavLink to="/student" className={classes.navigationColor} exact={true}>Student</NavLink>
         </ListItem>
 
        
@@ -141,7 +143,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-          <ListItemText primary="Instructor"  className={classes. navigationColor}  />
+          <NavLink to="/instructor" className={classes.navigationColor} exact={true}>Instructor</NavLink>
         </ListItem>
 
         
@@ -149,7 +151,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <LibraryBooksIcon />
           </ListItemIcon>
-          <ListItemText primary="Library"  className={classes. navigationColor} />
+         <NavLink to="/section" className={classes.navigationColor} exact={true}>Section</NavLink> 
         </ListItem>
 
        
@@ -158,7 +160,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <SchoolIcon />
           </ListItemIcon>
-          <ListItemText primary="Semester"  className={classes. navigationColor} />
+           <NavLink to="/library" className={classes.navigationColor} exact={true}>Library</NavLink>
         </ListItem>
 
       </List>
