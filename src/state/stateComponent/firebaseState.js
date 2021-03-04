@@ -2,9 +2,10 @@
 export let logInState = (userId) => (
     {
         type: "LOGIN_STATE",
-        userId: {
+        status: {
             userId
         }
+        
         
     }
 )
@@ -28,7 +29,8 @@ export let userStatusReducer = (state = {}, action) => {
         case "LOGIN_STATE":
             
             return {
-                ...action.userId
+                
+                ...action.status
             }
         
          case "LOGOUT_STATE":

@@ -10,6 +10,7 @@
 
 .section {
 	height: 100vh;
+	width: 100vw;
 	position: relative;
 	background-image: url('../images/jamie-taylor--9C3TMXwQjQ-unsplash.jpg');
 	background-size: cover;
