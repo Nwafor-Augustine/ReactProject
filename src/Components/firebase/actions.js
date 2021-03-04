@@ -7,5 +7,11 @@ export let startLoginAccount = () => {
     }
 }
 
+export let startLogoutAccount = () => {
+    return () => {
+        return firebase.auth().signOut()
+    }
+}
+
 
 

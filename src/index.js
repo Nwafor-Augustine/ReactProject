@@ -8,7 +8,8 @@ import {Provider} from 'react-redux'
 import { store } from './state/Store'
 import firebase from './Components/firebase/firebase'
 import './styles/style.css'
-import {history} from './Routing/App'
+import { history } from './Routing/App'
+import {logInState,logOutState} from './state/stateComponent/firebaseState'
 
 
 
@@ -30,16 +31,19 @@ let renderApp = () => {
 
 firebase.auth().onAuthStateChanged(function (user) {
  
-    if (user) {
+  if (user) {
+     
       renderApp()
       if (history.location.pathname === "/") {
         history.push("/dashboard")
+        store.dispatch(logInState(user.uid))
       }
   
   } else {
        
       renderApp()
       history.push("/")
+      store.dispatch(logOutState())
      
       
   }

@@ -29,11 +29,16 @@ export default function HomeloadingScreen(props) {
  
  
   return (
-    <div>
+    
       <Backdrop className={classes.backdrop} open={props.openModal} >
-              <ResponsiveDialog openModal={props.openModal} closeModalComfirm ={props.closeModalComfirm} closeModalCancel={props.closeModalCancel} title={props.title} message={props.message} />
+        <ResponsiveDialog
+          openModal={props.openModal}
+          closeModalComfirm={props.closeModalComfirm}
+          closeModalCancel={props.closeModalCancel}
+          title={props.title}
+          message={props.message} />
       </Backdrop>
-    </div>
+    
   );
 }
 

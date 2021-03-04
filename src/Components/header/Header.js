@@ -11,8 +11,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {IconButton,Fade} from '@material-ui/core';
 import {Container,Grid,Box, Hidden} from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
-
-
+import {startLogoutAccount} from '../firebase/actions'
+import {connect} from 'react-redux'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -116,7 +116,7 @@ let Header = (props)=> {
 
                     <Grid item xs={6} lg={2} md={2}>
                       
-                    <Button variant="text" className={classes.login}>SIGN OUT</Button>
+                    <Button variant="text" className={classes.login} onClick={props.logout}>SIGN OUT</Button>
                   
                     </Grid>
                      
@@ -144,4 +144,8 @@ let Header = (props)=> {
     
 }
 
-export default  Header
+export default connect(undefined,(dispatch) => (
+ {
+    logout:()=> dispatch(startLogoutAccount())
+ }
+))( Header)

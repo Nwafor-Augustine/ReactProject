@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) =>
   };
 
   return (
-    <div>
+    
       <Dialog
         fullWidth={true}
         open={open}
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) =>
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    
   );
 }
 
