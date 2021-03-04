@@ -88,7 +88,10 @@ const useStyles = makeStyles((theme) =>
     },
     navigationColor: {
       textDecoration:"none",
-      color:green[500]
+      color: green[500],
+      fontSize: '1rem',
+      fontFamily: "Roboto",
+      fontWeight: "lighter",
     }
      
  
