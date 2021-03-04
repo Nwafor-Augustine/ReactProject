@@ -6,23 +6,14 @@ import  ResponsiveDialog from './homeloading'
 import Main from './main'
 
 
-let usestyle = makeStyles({
-    root: {
-        marginTop:"10vh"
-    }
-    
-  
-})
-
-
 
 let Home = () => {
     
     
-        let classes = usestyle()
+       
 
         return (
-            <div className={classes.root}>
+            <div >
                 
                 <CssBaseline />
                 <ResponsiveDialog />
