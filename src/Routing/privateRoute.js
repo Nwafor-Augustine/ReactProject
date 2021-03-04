@@ -14,12 +14,17 @@ let PrivateRoute = (
     ) => {
     
     return <Route {...rest} component={(props) => (
-        userStatusCheck ? (<div><Header/><Component {...props}/></div>) :(<Redirect to={"/"}/>)
+        userStatusCheck ? (
+            <div>
+                <Header />
+                <Component {...props} />
+            </div>
+        ) : (<Redirect to={"/"} />)
     )}/>
 
 }  
 export default connect((store) => (
     {
-        userStatusCheck:store.userStatus
+        userStatusCheck:!!store.userStatus
     }
 ))(PrivateRoute)

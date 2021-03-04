@@ -22,14 +22,15 @@ const App = () => {
         
             <Router history={history} >
           <Switch>
-                    <PrivateRoute  path="/dashboard" component={DashboradPage} exact={true}/>
-                    <Route path="/" component={Home} exact={true}/>
+                    
+                    <Route path="/" component={Home} exact={true} />
+                    <PrivateRoute  path="/dashboard" component={DashboradPage} />
                     <PrivateRoute  path="/student" component={Student} exact={true}/>
                     <PrivateRoute  path="/instructor" component={getInstructor} exact={true}/>
                     <PrivateRoute  path="/section" component={Section} />
                     <PrivateRoute  path="/library" component={Library} />
                    
-                    <PrivateRoute  path="/show" component={Editpage} exact={true}/>
+                    <Route  path="/show" component={Editpage} exact={true}/>
                     
                     <Route  component={ErorPage} />
                  </Switch>

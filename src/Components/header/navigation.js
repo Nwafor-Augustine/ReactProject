@@ -66,15 +66,7 @@ export let Nav = (props) => {
       <Divider />
      
        <List component="nav" aria-label="dashboard navigation">
-       
-        <ListItem button>
-      
-             <HomeIcon/>
-             <NavLink to="/" className={classes.navLink} exact={true}>Home</NavLink>
-           
-        </ListItem>
-     
-                                
+                        
         <ListItem button>
            <Dashboard/>
            <NavLink to="/dashboard" className={classes.navLink} exact={true}>Dashboard</NavLink>
@@ -121,9 +113,7 @@ export let Nav = (props) => {
                  
                  <Grid className={classes.nav}>
              
-                       <Box mr={{md:2,lg:5}}>
-                       <NavLink to="/" className={classes.navLink} exact={true}>Home</NavLink>
-                       </Box>
+                       
                        
                         <Box mr={{md:2,lg:5}}>
                                <NavLink to="/dashboard" className={classes.navLink} exact={true}>Dashboard</NavLink>
