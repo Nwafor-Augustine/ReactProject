@@ -226,7 +226,7 @@ const useStyles = makeStyles((theme) =>
              
                  
                    <Grid item xs={8} lg={2} >
-              <Button variant="text"  className={classes.loginbtn} onClick={props.logout}>SIGN Up</Button>    
+              <Button variant="text"  className={classes.loginbtn} onClick={props.logout}>Log Out</Button>    
               
                   </Grid> 
          

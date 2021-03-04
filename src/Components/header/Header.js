@@ -116,7 +116,7 @@ let Header = (props)=> {
 
                     <Grid item xs={6} lg={2} md={2}>
                       
-                    <Button variant="text" className={classes.login} onClick={props.logout}>SIGN OUT</Button>
+                    <Button variant="text" className={classes.login} onClick={props.logout}>Log Out</Button>
                   
                     </Grid>
                      
