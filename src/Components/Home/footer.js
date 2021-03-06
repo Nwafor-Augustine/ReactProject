@@ -15,11 +15,11 @@ let usestyle = makeStyles({
         
     },
     link: {
-        color: green[500],
+        color: "white",
         textDecoration:"none",
         fontSize: "1rem",
         "&:hover": {
-            color:"white"
+            color:green[500]
         }
     }
     
@@ -34,28 +34,28 @@ export const Footer = () => {
                 <Grid item lg={4} md={4} sm={12}>
                     <img></img>
                     <ListItem>
-                        <Link className={classes.link}>Email:Nwaforaugustine@gmail.com</Link>
+                        <Link className={classes.link} to="/">Email:Nwaforaugustine@gmail.com</Link>
                     </ListItem>
                     <ListItem>
-                        <Link className={classes.link}>Github</Link>
+                        <Link to="/"className={classes.link}>Github</Link>
                     </ListItem>
                 </Grid>
                 <Grid item lg={4} md={4} sm={12}>
                     <List>
                         <ListItem>
-                        <Link className={classes.link}>About</Link>
+                        <Link to="/"className={classes.link}>About</Link>
                         </ListItem>
                         <ListItem>
-                          <Link className={classes.link}>Contact</Link>
+                          <Link to="/"className={classes.link}>Contact</Link>
                         </ListItem>
                         <ListItem>
-                           <Link className={classes.link}>Apply Guild</Link>
+                           <Link to="/"className={classes.link}>Apply Guild</Link>
                         </ListItem>
                         <ListItem>
-                         <Link className={classes.link}>Feature</Link>
+                         <Link to="/" className={classes.link}>Feature</Link>
                         </ListItem>
                          <ListItem>
-                        <Link className={classes.link}>Num:07031045066</Link>
+                        <Link to="/"className={classes.link}>Num:07031045066</Link>
                     </ListItem>
                     </List>
 

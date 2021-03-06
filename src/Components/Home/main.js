@@ -3,7 +3,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import {Features }from './schoolFeatures'
 import { Grid, Typography, Avatar, Box, IconButton ,makeStyles, Container,Divider,Paper, Button,ButtonGroup } from '@material-ui/core'
-import {green} from '@material-ui/core/colors'
+import {green,blueGrey} from '@material-ui/core/colors'
 import zIndex from '@material-ui/core/styles/zIndex';
 import { startLoginAccount } from '../firebase/actions'
 import {connect} from 'react-redux'
@@ -166,7 +166,7 @@ let usestyle = makeStyles(theme =>({
     },
 
     registerInnerText: {
-        color: green[500],
+        color: blueGrey[600],
         fontSize: "1.1rem",
         backgroundColor: "white",
         textTransform:"capitalize",

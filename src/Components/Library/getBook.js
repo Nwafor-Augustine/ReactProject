@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ListOfBooks } from './ListBooks'
-import { addTextBooks } from '../../state/stateComponent/Library'
+import { fireBaseDataSaved } from '../../state/stateComponent/Library'
 import { TextField, Container, Button, Box, Typography,ThemeProvider,createMuiTheme,Divider } from '@material-ui/core'
 import { green,blue } from '@material-ui/core/colors';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
@@ -101,7 +101,7 @@ closeModalComfirm() {
 
              if (this.state.Name && this.state.Author && this.state.ISBN) {
               
-            this.props.dispatch(addTextBooks(this.state))
+            this.props.dispatch(fireBaseDataSaved(this.state))
             this.state.Name = ""
             this.state.Author = ""
             this.state.ISBN = ""

@@ -99,7 +99,7 @@ let fireBaseDataSaved = (bookData) => {
     return (dispatch) => {
 
         dataBase.ref("Books").push(book).then((ref) => {
-            dispatch( addTextBooks({Id:ref.key,...book}))
+            dispatch(addTextBooks({Id:ref.key,...book}))
         })
     }
 }
@@ -177,4 +177,4 @@ const bookReducer = (state=textBooks, action) => {
     }
 }
 
-export{bookReducer,addTextBooks, sortTextBooks,editTextBooks,removeBook}
+export{bookReducer,fireBaseDataSaved, sortTextBooks,editTextBooks,removeBook}
