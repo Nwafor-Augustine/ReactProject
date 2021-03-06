@@ -18,18 +18,17 @@ let usestyle = makeStyles(theme =>({
         width:"100%",
         maxHeight: 200,
         borderRadius:5,
-        [theme.breakpoints.down("sm")]: {
-          maxWidth: 450,
-         maxHeight: 250
-        }
+       
         
     },
 
     gridItem: {
+        
+       
         textAlign: "center",
         "&:hover":{
            opacity:.5
-       }
+        }
     },
 
     description: {
@@ -62,7 +61,7 @@ export let Features = () => {
 
     return (
              [img0, img1,img2,img3,img4,img5,img6].map((image,index) => {
-    return <Grid item xs={12} sm={12} md={4} lg={3} className={classes.gridItem}  >
+    return <Grid item xs={12} sm={4} md={3} lg={2} className={classes.gridItem}  >
         <img src={image} className={classes.img} ></img>
        
           <Typography className={classes.description}>{description[index]}</Typography>

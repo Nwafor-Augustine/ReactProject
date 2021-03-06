@@ -284,7 +284,7 @@ const Main = (props) => {
                 </section>
          <section className={classes.section2} >
                  
-                <Container className={classes.section2Container}>
+                <Container maxWidth={"lg"} className={classes.section2Container}>
                     
                     <Grid container spacing={1} >
                     
