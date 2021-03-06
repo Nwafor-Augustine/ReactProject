@@ -14,8 +14,8 @@ let usestyle = makeStyles(theme =>({
     
     img: {
          
-        width: "100%",
-        maxWidth:250,
+        maxWidth: "100%",
+        width:"100%",
         maxHeight: 200,
         borderRadius:5,
         [theme.breakpoints.down("sm")]: {
