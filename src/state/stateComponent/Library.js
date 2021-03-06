@@ -86,6 +86,7 @@ let sortTextBooks = ({sortType,textBooks}) => {
 
 
 let fireBaseDataSaved = (bookData) => {
+    console.log("f")
     const {
         
         ISBN,

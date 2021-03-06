@@ -32,7 +32,9 @@ export let store = createStore(
 
 
 
-
+store.subscribe(() => {
+     console.log(store.getState())
+})
 
 
 
