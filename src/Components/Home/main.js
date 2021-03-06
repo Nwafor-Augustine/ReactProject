@@ -1,9 +1,8 @@
 import React from 'react'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
-import  img0 from '../../images/helena-lopes-UZe35tk5UoA-unsplash.jpg'
-import img1 from '../../images/javier-trueba-iQPr1XkF5F0-unsplash.jpg'
-import { Grid, Typography, Avatar, Box, IconButton ,makeStyles, Container,Divider,Paper, Button } from '@material-ui/core'
+import {Features }from './schoolFeatures'
+import { Grid, Typography, Avatar, Box, IconButton ,makeStyles, Container,Divider,Paper, Button,ButtonGroup } from '@material-ui/core'
 import {green} from '@material-ui/core/colors'
 import zIndex from '@material-ui/core/styles/zIndex';
 import { startLoginAccount } from '../firebase/actions'
@@ -131,12 +130,13 @@ let usestyle = makeStyles(theme =>({
 
     section2: {
         minHeight: "100vh",
-      
+        display: "flex",
+        alignItems:"center"
        
     },
     section2Container:{
-        paddingTop: "20vh",
-        paddingBottom: "20vh",
+        paddingTop: "10vh",
+        paddingBottom: "10vh",
            
         [theme.breakpoints.down("xs")]: {
              
@@ -219,6 +219,8 @@ let usestyle = makeStyles(theme =>({
     registerbtn: {
         marginTop: "30vh",
         textAlign: "center",
+        
+
            
     },
 
@@ -226,7 +228,8 @@ let usestyle = makeStyles(theme =>({
         color: green[500],
         fontSize: "1.1rem",
         backgroundColor: "white",
-        padding: 10,
+        textTransform:"capitalize",
+        padding: 8,
             "&:hover": {
                 color: "white",
                 backgroundColor:green[500]
@@ -252,7 +255,10 @@ const Main = (props) => {
                       <div className={"shadow"}></div>
                     <Container maxWidth="xl" >
                         
-                        <Grid container >
+                    <Grid container >
+                        <Grid item lg={12}>
+                           
+                        </Grid>
                             <Grid item lg={9}>
                                 <Typography  variant="h3"  className={classes.intro}>
                                     My React School Management System <br></br>
@@ -263,124 +269,27 @@ const Main = (props) => {
                                 </Typography>
                             </Grid>
                         <Grid item lg={3}></Grid>
-                        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.registerbtn}><Button variant="outlined" className={classes.registerInnerText} onClick={props.logIn}>Register</Button></Grid>
+                        <Grid item lg={12} md={12} sm={12} xs={12} className={classes.registerbtn}>
+                            <ButtonGroup size="small" variant="outlined">
+                            <Button variant="outlined" className={classes.registerInnerText} onClick={props.logIn}>Apply now
+                            </Button>
+                            <Button variant="outlined" className={classes.registerInnerText} onClick={props.logIn}>Read more....
+                            </Button>
+                            </ButtonGroup>
+                            
                         </Grid>
-                 
+                        </Grid>
+                
                 </Container>
                 </section>
          <section className={classes.section2} >
                  
-                    <Container   className={classes.section2Container}>
-                        <Grid container spacing={10} >
-                            <Grid item lg={6} md={6} sm={12}>
-                                     <Divider/>   
-                            <Typography variant="h3" className={classes.heard__intro}>
-                                Welcome to JBEE
-                            </Typography>
-                               
-                                <Typography variant="h5" className={classes.header__subtitle}>
-                                The main entity of the database are Students,Instructors,Departments and Sections
-                                </Typography> 
-                                
-                            <Divider />
-                            
-                                 <h4 className={classes.subHeader}>Instructors</h4> 
-                            <Paper elevation={6}  className={classes.listoption}>
-                            
-                                   <React.Fragment >
-                                    <IconButton>
-                                    <Avatar className={classes.avatar}  >
-                                           <PersonIcon/>
-                                      
-                                    </Avatar>
-                                    </IconButton>   
-                                 <p> click to view the list of instructors in the school  </p>
-                                   
-                                </React.Fragment>
-                            </Paper>
-
-                            <h4 className={classes.subHeader}>Departments</h4>
- 
-                            <Paper elevation={6} color="inherit" className={classes.listoption}>
-                                        <React.Fragment >
-                                    <IconButton>
-                                    <Avatar className={classes.avatar}  >
-                                           <LibraryBooksIcon />
-                                      
-                                    </Avatar>
-                                    </IconButton>   
-                                 <p> click to view the list of departments in the school  </p>
-                                   
-                                </React.Fragment>
-                            </Paper>
-                                
-                             <h4 className={classes.subHeader}>Books</h4>
-                          
-                          
-                            <Paper  elevation={6} className={classes.listoption}>
-                                 
-                                <React.Fragment >
-                                    <IconButton>
-                                     <Avatar className={classes.avatar}  >
-                                        <LibraryBooksIcon />
-                                    
-                                    </Avatar> 
-                                    </IconButton>
-                                <p>click to view the list of book in the school </p>
-                                    
-                                </React.Fragment>
-                                      
-                            </Paper>
-                            
-                               
-
-                                   
-                                   
-                             <h4 className={classes.subHeader}>Students</h4>
-                            
-                            
-                            <Paper elevation={6} className={classes.listoption}>
-                             
-                           <React.Fragment >
-                                   
-                                    <IconButton>
-                                         <Avatar className={classes.avatar}  >
-                                            <PersonIcon />
-                                         </Avatar>
-                                    </IconButton> 
-                                <p> click to view the list of student in the school  </p>
-                                   
-                                </React.Fragment>
-                            </Paper>
-                            
-                      
-                          
-                        </Grid>
-
-                           
-                            <Divider /> 
-
-                        <Grid item lg={6} md={6} sm={12}>
-                              
-                                <Grid container   className={classes.imageGrid}>
-                                <Grid item sm={12} className={classes.innerImageGrid}>
-                            
-                                    <img src={`${img0}`} className={classes.img0}>
-                                    </img>
-                            
-                               
-                                </Grid>
-
-                                 <Grid item sm={12} className={classes.innerImageGrid}>
-                                    
-                                    <img src={`${img1}`} className={classes.img1}>
-                                    </img>
-                                
-                                  </Grid>
-                                </Grid>
-                            
-                        </Grid>
+                <Container className={classes.section2Container}>
+                    
+                    <Grid container >
+                       <Features/>
                     </Grid>
+
                     </Container>
                 </section>
         </React.Fragment>

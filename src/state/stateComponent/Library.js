@@ -3,7 +3,7 @@ import moment from 'moment'
 
 
 
-// small library  data management
+// actions
 
  
 
@@ -61,6 +61,9 @@ let editTextBooks = (bookName, textBooks, {ISBN, Name,Id,Author,Time}) => {
     
 }
 
+
+
+
 let sortTextBooks = ({sortType,textBooks}) => {
 
   
@@ -79,6 +82,15 @@ let sortTextBooks = ({sortType,textBooks}) => {
        }
 }
 }
+
+
+let fireBaseDataSaved = () => {
+    return () => {
+        
+    }
+}
+
+
 
 const bookReducer = (state=textBooks, action) => {
     
