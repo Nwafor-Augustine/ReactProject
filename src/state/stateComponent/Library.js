@@ -1,6 +1,6 @@
 import uuid from 'react-uuid'
 import moment from 'moment'
-
+import {dataBase} from '../../Components/firebase/firebase'
 
 
 // actions
@@ -18,17 +18,18 @@ const textBooks = [
 ]
 
 
-let addTextBooks = ( { ISBN, Name,Author}) => {
+let addTextBooks = ( {Id, ISBN, Name,Author}) => {
     
    
     return {
     type:"ADDTEXTBOOK",
-    textBook:{
+    textBook: {
+        
     ISBN,
     Name,
     Author,
     Time:moment().valueOf(),
-    Id: uuid()
+    Id
     }
 }
 }
@@ -84,9 +85,22 @@ let sortTextBooks = ({sortType,textBooks}) => {
 }
 
 
-let fireBaseDataSaved = () => {
-    return () => {
+let fireBaseDataSaved = (bookData) => {
+    const {
         
+        ISBN,
+        Name,
+        Author,
+   
+    } = bookData;
+
+    const book = { ISBN, Name, Author };
+
+    return (dispatch) => {
+
+        dataBase.ref("Books").push(book).then((ref) => {
+            dispatch( addTextBooks({Id:ref.key,...book}))
+        })
     }
 }
 

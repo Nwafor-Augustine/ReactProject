@@ -15,66 +15,7 @@ let usestyle = makeStyles(theme =>({
         
     },
     
-    img0:{
-        width:"100%",
-        maxWidth:400,
-        maxHeight: 200,
-        [theme.breakpoints.down("md")]: {
-           
-            maxWidth:350,
-        },
-          [theme.breakpoints.up("md")]: {
-            float:"right"
-        },
-
-        [theme.breakpoints.down("sm")]: {
-             
-             position:"static",
-             
-           
-        },
-
-
-            [theme.breakpoints.down("xs")]: {
-             
-                maxWidth: 500,
-                 maxHeight:250
-        }
-          
-       
-       
-        
-    },
-    img1: {
-         
-        width: "100%",
-        maxWidth:400,
-        maxHeight:200,
-        position: "absolute" ,
-        top:"70%",
-        left: "20%",
-        zIndex: 100,
-        [theme.breakpoints.down("md")]: {
-            zIndex: 0,
-            left: "10%",
-            maxWidth:350,
-        },
-      
-       [theme.breakpoints.down("sm")]: {
-             
-             top: "0%",
-             left: "0%",
-             position: "static",
-        
-            
-            
-        },
-            [theme.breakpoints.down("xs")]: {
-             
-                maxWidth: 500,
-                maxHeight:250
-        }
-    },
+   
     intro: {
         color:"white",
         textAlign:"left",
@@ -140,8 +81,8 @@ let usestyle = makeStyles(theme =>({
            
         [theme.breakpoints.down("xs")]: {
              
-        paddingTop: "10vh",
-        paddingBottom: "10vh",
+        paddingTop: "5vh",
+        paddingBottom: "5vh",
            
         }
        
@@ -271,9 +212,9 @@ const Main = (props) => {
                         <Grid item lg={3}></Grid>
                         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.registerbtn}>
                             <ButtonGroup size="small" variant="outlined">
-                            <Button variant="outlined" className={classes.registerInnerText} onClick={props.logIn}>Apply now
+                            <Button  className={classes.registerInnerText} onClick={props.logIn}>Apply now
                             </Button>
-                            <Button variant="outlined" className={classes.registerInnerText} onClick={props.logIn}>Read more....
+                            <Button  className={classes.registerInnerText}>Read more....
                             </Button>
                             </ButtonGroup>
                             
@@ -285,12 +226,13 @@ const Main = (props) => {
          <section className={classes.section2} >
                  
                 <Container maxWidth={"lg"} className={classes.section2Container}>
-                    
+                  
                     <Grid container spacing={1} >
+                      
+                        <Features />
                     
-                       <Features/>
                     </Grid>
-
+                      <Divider/>
                     </Container>
                 </section>
         </React.Fragment>
