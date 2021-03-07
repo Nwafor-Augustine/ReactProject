@@ -2,11 +2,12 @@ import React from 'react'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import {Features }from './schoolFeatures'
-import { Grid, Typography, Avatar, Box, IconButton ,makeStyles, Container,Divider,Paper, Button,ButtonGroup } from '@material-ui/core'
+import { Grid, Typography, IconButton ,makeStyles, Container,Divider, Button,ButtonGroup,Link } from '@material-ui/core'
 import {green,blueGrey} from '@material-ui/core/colors'
 import zIndex from '@material-ui/core/styles/zIndex';
 import { startLoginAccount } from '../firebase/actions'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import logo from '../../images/logo.png'
 
 let usestyle = makeStyles(theme =>({
     root: {
@@ -176,6 +177,32 @@ let usestyle = makeStyles(theme =>({
                 backgroundColor:green[500]
        }
         
+    },
+    logo: {
+       width: 60,
+       height: 60,
+       borderRadius: "50%",
+    zIndex: 100,
+      position: "relative"
+    },
+
+
+    logoContainer: {
+        paddingTop:6
+    },
+
+
+    linkContainer: {
+        padding:"2% 0%"
+    },
+    link: {
+        color: "white",
+        textDecoration: "none",
+        fontSize: "1rem",
+        marginRight: "5%",
+        position: "relative",
+        lineHeight:"40%",
+        zIndex:100
     }
 
 
@@ -197,8 +224,20 @@ const Main = (props) => {
                     <Container maxWidth="xl" >
                         
                     <Grid container >
+                        
                         <Grid item lg={12}>
-                           
+                            <Grid container >
+                            <Grid item lg={8} className={classes.logoContainer}>
+                            <img className={classes.logo} src={logo}></img>
+                            </Grid>
+                                
+                            <Grid item lg={4} className={classes.linkContainer}>
+                                    <Link to="/" className={classes.link}>About</Link>
+                                    <Link to="/" className={classes.link}>Contact</Link>
+                                    <Link to="/" className={classes.link}>Blog</Link>
+                            </Grid>
+                            </Grid>
+                          <Divider/>
                         </Grid>
                             <Grid item lg={9}>
                                 <Typography  variant="h3"  className={classes.intro}>
@@ -222,6 +261,7 @@ const Main = (props) => {
                         </Grid>
                 
                 </Container>
+                
                 </section>
          <section className={classes.section2} >
                  

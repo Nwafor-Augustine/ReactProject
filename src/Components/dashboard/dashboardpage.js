@@ -1,5 +1,5 @@
 import React from "react"
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {Nav} from '../header/navigation'
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -129,7 +129,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <HomeIcon/>
           </ListItemIcon>
-          <NavLink to="/dashboard" className={classes. navigationColor}  exact={true}>Dashboard</NavLink>
+          <Link to="/dashboard" className={classes. navigationColor}  exact={true}>Dashboard</Link>
         </ListItem>
      
         
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-        <NavLink to="/student" className={classes.navigationColor} exact={true}>Student</NavLink>
+        <Link to="/student" className={classes.navigationColor} exact={true}>Student</Link>
         </ListItem>
 
        
@@ -146,7 +146,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-          <NavLink to="/instructor" className={classes.navigationColor} exact={true}>Instructor</NavLink>
+          <Link to="/instructor" className={classes.navigationColor} exact={true}>Instructor</Link>
         </ListItem>
 
         
@@ -154,7 +154,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <LibraryBooksIcon />
           </ListItemIcon>
-         <NavLink to="/section" className={classes.navigationColor} exact={true}>Section</NavLink> 
+         <Link to="/section" className={classes.navigationColor} exact={true}>Section</Link> 
         </ListItem>
 
        
@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <SchoolIcon />
           </ListItemIcon>
-           <NavLink to="/library" className={classes.navigationColor} exact={true}>Library</NavLink>
+           <Link to="/library" className={classes.navigationColor} exact={true}>Library</Link>
         </ListItem>
 
       </List>
