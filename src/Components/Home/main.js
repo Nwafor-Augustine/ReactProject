@@ -2,7 +2,7 @@ import React from 'react'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import {Features }from './schoolFeatures'
-import { Grid, Typography, IconButton ,makeStyles, Container,Divider, Button,ButtonGroup,Link } from '@material-ui/core'
+import { Grid, Typography, IconButton ,makeStyles, Container,Divider, Button,ButtonGroup,Link, Hidden } from '@material-ui/core'
 import {green,blueGrey} from '@material-ui/core/colors'
 import zIndex from '@material-ui/core/styles/zIndex';
 import { startLoginAccount } from '../firebase/actions'
@@ -225,17 +225,19 @@ const Main = (props) => {
                         
                     <Grid container >
                         
-                        <Grid item lg={12}>
+                        <Grid item lg={12} md={12} sm={12} xs={12} >
                             <Grid container >
-                            <Grid item lg={8} className={classes.logoContainer}>
+                            <Grid item lg={8} md={8} sm={8} xs={8} className={classes.logoContainer}>
                             <img className={classes.logo} src={logo}></img>
                             </Grid>
-                                
-                            <Grid item lg={4} className={classes.linkContainer}>
+                                <Hidden xsDown  implementation="js">
+                                <Grid item lg={4} md={4} sm={4} xs={4} className={classes.linkContainer}>
                                     <Link to="/" className={classes.link}>About</Link>
                                     <Link to="/" className={classes.link}>Contact</Link>
                                     <Link to="/" className={classes.link}>Blog</Link>
-                            </Grid>
+                                 </Grid>
+                                </Hidden>
+                            
                             </Grid>
                           <Divider/>
                         </Grid>
