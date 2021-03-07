@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import {Chip,Button }from '@material-ui/core'
 import React from 'react'
-import { removeBook } from '../../state/stateComponent/Library';
+import { firebaseRemoveBook} from '../../state/stateComponent/Library';
 
 
 
@@ -58,7 +58,7 @@ export default function BasicTable(props) {
        onDelete={
            () => {
                            
-                            props.storeAction.dispatch(removeBook(props.book.Id, props.storeAction.books))
+                            props.storeAction.dispatch(firebaseRemoveBook(props.book.Id, props.storeAction.books))
                        
                           
                         }

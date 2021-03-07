@@ -1,6 +1,7 @@
 import uuid from "react-uuid"
+import {dataBase } from '../../Components/firebase/firebase'
 
-// instructor data management
+
 const instructors = [{
     serialNumber: uuid(),
     Name: "Austine",
@@ -9,21 +10,41 @@ const instructors = [{
 }
 ]
 
-
-let newInstructor = ({Name,Department,Salary}) => (
+// save instructor in firebase and redux
+let newInstructor = (instructorDetail) => (
     
     {
         type: "NEW_INSTRUCTOR", 
+
         instructor: {
-        serialNumber:uuid(),
-        Name,
-        Department,
-        Salary
+        ...instructorDetail
         }
       
 }
 
 )
+
+let firebaseSaveInstructor = (instructorData) => {
+    const {
+        Name,
+        Department,
+        Salary
+    } = instructorData
+
+    let instructor = { Name, Department, Salary }
+    
+    return (dispatch) => {
+
+        dataBase.ref('Instructor').push(instructor).then((ref) => {
+            dispatch(newInstructor(
+                {
+                    serialNumber: ref.key,
+                    ...instructor
+                }
+            ))
+        })
+    }
+}
 
 
 let removeInstructor = (serialNumber,instructors) => {
@@ -78,4 +99,4 @@ const instructorReducer = (state=instructors, action) => {
     }
 }
 
-export{instructorReducer,newInstructor,removeInstructor}
+export{instructorReducer,firebaseSaveInstructor ,removeInstructor}

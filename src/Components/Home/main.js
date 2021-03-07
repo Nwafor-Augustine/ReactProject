@@ -161,6 +161,9 @@ let usestyle = makeStyles(theme =>({
     registerbtn: {
         marginTop: "30vh",
         textAlign: "center",
+        [theme.breakpoints.down("sm")]:{
+               marginTop: "10vh",
+        }
         
 
            
@@ -202,7 +205,12 @@ let usestyle = makeStyles(theme =>({
         marginRight: "5%",
         position: "relative",
         lineHeight:"40%",
-        zIndex:100
+        zIndex: 100,
+        "&:hover": {
+            color: green[500],
+            textDecoration: "none",
+            cursor:"pointer"
+        }
     }
 
 
@@ -253,7 +261,7 @@ const Main = (props) => {
                         <Grid item lg={3}></Grid>
                         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.registerbtn}>
                             <ButtonGroup size="small" variant="outlined">
-                            <Button  className={classes.registerInnerText} onClick={props.logIn}>Apply now
+                            <Button  className={classes.registerInnerText} onClick={props.logIn}>Apply
                             </Button>
                             <Button  className={classes.registerInnerText}>Read more....
                             </Button>

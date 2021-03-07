@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {newInstructor } from '../../state/stateComponent/Instructor'
+import {firebaseSaveInstructor } from '../../state/stateComponent/Instructor'
 import { Button, Container, TextField, Avatar, Box, Typography,ThemeProvider,createMuiTheme,Divider } from '@material-ui/core';
 import { green,blue,grey} from '@material-ui/core/colors';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
@@ -114,7 +114,7 @@ let theme = createMuiTheme({
         ))
 
              if (this.state.Name && this.state.Department && this.state.Salary) {
-            this.props.dispatch(newInstructor(this.state))
+            this.props.dispatch(firebaseSaveInstructor (this.state))
             this.state.Name = ""
             this.state.Department = ""
             this.state.Salary = ""
