@@ -36,7 +36,10 @@ let firebaseSaveStudent = (studentData) => {
     }
 }
 
-const removeStudent = (id,students) => {
+
+
+// removing student from firebase and redux
+const removeStudent = ({id,students}) => {
 
  
     return {
@@ -47,6 +50,14 @@ const removeStudent = (id,students) => {
     }
 }
    
+let firebaseRemoveStudent = (id,students) => {
+
+    return (dispatch) => {
+        dataBase.ref(`Student/${id}`).remove().then(() => {
+            dispatch(removeStudent({id,students}))
+        })
+    }
+}
 
 
    
@@ -97,4 +108,4 @@ const studentReducer = (state = student, action) => {
 }
 
 
-export{studentReducer,firebaseSaveStudent,removeStudent}
+export{studentReducer,firebaseSaveStudent,firebaseRemoveStudent }

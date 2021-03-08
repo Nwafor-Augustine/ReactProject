@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import {Chip,Button }from '@material-ui/core'
 import React from 'react'
-import {removeStudent} from '../../state/stateComponent/Student';
+import {firebaseRemoveStudent } from '../../state/stateComponent/Student';
 
 
 
@@ -58,7 +58,7 @@ export default function BasicTable(props) {
        onDelete={
            () => {
                            
-                            props.store.dispatch(removeStudent(props.student.Id, props.store.mapstudent))
+                            props.store.dispatch(firebaseRemoveStudent (props.student.Id, props.store.mapstudent))
                        
              
              

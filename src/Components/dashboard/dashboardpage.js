@@ -300,7 +300,7 @@ const useStyles = makeStyles((theme) =>
                     <Grid item lg={6} md={6} sm={12} xs={12}>
                        <Semesterfeature />
                     </Grid>
-          <Instructors />
+          <ListOfstudent />
           
           </Grid>
           
