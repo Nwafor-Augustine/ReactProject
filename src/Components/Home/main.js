@@ -253,7 +253,7 @@ const Main = (props) => {
                             <Grid item lg={9}>
                                 <Typography  variant="h3"  className={classes.intro}>
                                     My React School Management System <br></br>
-                                    With Firebase Authentication
+                                    With Firebase Authentication And Database
                                 <IconButton>
                                 
                                 </IconButton>
