@@ -3,11 +3,12 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import {Features }from './schoolFeatures'
 import { Grid, Typography, IconButton ,makeStyles, Container,Divider, Button,ButtonGroup,Link, Hidden } from '@material-ui/core'
-import {green,blueGrey} from '@material-ui/core/colors'
+import {green,blueGrey,orange} from '@material-ui/core/colors'
 import zIndex from '@material-ui/core/styles/zIndex';
 import { startLoginAccount } from '../firebase/actions'
 import { connect } from 'react-redux'
 import logo from '../../images/logo.png'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 let usestyle = makeStyles(theme =>({
     root: {
@@ -170,7 +171,7 @@ let usestyle = makeStyles(theme =>({
     },
 
     registerInnerText: {
-        color: blueGrey[600],
+        color: orange[500],
         fontSize: "1.1rem",
         backgroundColor: "white",
         textTransform:"capitalize",
@@ -199,7 +200,7 @@ let usestyle = makeStyles(theme =>({
         padding:"2% 0%"
     },
     link: {
-        color: "white",
+        color: orange[500],
         textDecoration: "none",
         fontSize: "1rem",
         marginRight: "5%",
@@ -207,7 +208,7 @@ let usestyle = makeStyles(theme =>({
         lineHeight:"40%",
         zIndex: 100,
         "&:hover": {
-            color: green[500],
+            color: "white",
             textDecoration: "none",
             cursor:"pointer"
         }
@@ -263,7 +264,7 @@ const Main = (props) => {
                             <ButtonGroup size="small" variant="outlined">
                             <Button  className={classes.registerInnerText} onClick={props.logIn}>Apply
                             </Button>
-                            <Button  className={classes.registerInnerText}>Read more....
+                            <Button  className={classes.registerInnerText}>Read more<ExpandMoreIcon />
                             </Button>
                             </ButtonGroup>
                             

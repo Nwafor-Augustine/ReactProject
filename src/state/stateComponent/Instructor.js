@@ -35,7 +35,7 @@ let firebaseSaveInstructor = (instructorData) => {
     
     return (dispatch) => {
 
-        dataBase.ref('Instructor').push(instructor).then((ref) => {
+        dataBase.ref('Instructors').push(instructor).then((ref) => {
             dispatch(newInstructor(
                 {
                     serialNumber: ref.key,
@@ -46,6 +46,7 @@ let firebaseSaveInstructor = (instructorData) => {
     }
 }
 
+//removing instructor from firebase and redux
 
 let removeInstructor = (serialNumber,instructors) => {
      
@@ -54,6 +55,16 @@ let removeInstructor = (serialNumber,instructors) => {
         instructors,
         serialNumber
    }
+}
+
+
+let firebaseRemoveInstructor = (serialNumber,instructors) => {
+console.log("going")
+    return (dispatch) => {
+        dataBase.ref(`Instructors/${serialNumber}`).remove().then(() => {
+            dispatch(removeInstructor(serialNumber,instructors))
+        })
+    }
 }
 
    
@@ -99,4 +110,4 @@ const instructorReducer = (state=instructors, action) => {
     }
 }
 
-export{instructorReducer,firebaseSaveInstructor ,removeInstructor}
+export{instructorReducer,firebaseSaveInstructor ,firebaseRemoveInstructor}

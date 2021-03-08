@@ -32,7 +32,7 @@ let usestyle = makeStyles(theme =>({
     },
 
     description: {
-        color: blueGrey[600],
+       
         padding: "2% 0% 10% 0%",
          [theme.breakpoints.down("sm")]: {
           padding: "2% 0% 4% 0%",

@@ -30,7 +30,8 @@ import SchoolIcon from '@material-ui/icons/School';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import MenuIcon from '@material-ui/icons/Menu'
-import {startLogoutAccount} from '../firebase/actions'
+import { startLogoutAccount } from '../firebase/actions'
+
 import {connect} from 'react-redux'
 
 
@@ -137,7 +138,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-        <Link to="/student" className={classes.navigationColor} exact={true}>Student</Link>
+        <Link to="/student" className={classes.navigationColor} >Student</Link>
         </ListItem>
 
        
@@ -146,7 +147,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
-          <Link to="/instructor" className={classes.navigationColor} exact={true}>Instructor</Link>
+          <Link to="/instructor" className={classes.navigationColor} >Instructor</Link>
         </ListItem>
 
         
@@ -154,7 +155,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <LibraryBooksIcon />
           </ListItemIcon>
-         <Link to="/section" className={classes.navigationColor} exact={true}>Section</Link> 
+         <Link to="/section" className={classes.navigationColor} >Section</Link> 
         </ListItem>
 
        
@@ -163,7 +164,7 @@ const useStyles = makeStyles((theme) =>
           <ListItemIcon>
             <SchoolIcon />
           </ListItemIcon>
-           <Link to="/library" className={classes.navigationColor} exact={true}>Library</Link>
+           <Link to="/library" className={classes.navigationColor} >Library</Link>
         </ListItem>
 
       </List>
@@ -299,7 +300,8 @@ const useStyles = makeStyles((theme) =>
                     <Grid item lg={6} md={6} sm={12} xs={12}>
                        <Semesterfeature />
                     </Grid>
-                <ListOfBooks/>
+          <Instructors />
+          
           </Grid>
           
       </Container>

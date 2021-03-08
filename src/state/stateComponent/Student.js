@@ -1,18 +1,17 @@
 import uuid from "react-uuid"
 import moment from 'moment'
+import {dataBase, DataBase} from '../../Components/firebase/firebase'
 
-//student data management
 const student = []
 
-const newStudent=({Name,Department,Credit})=>(
+// saving data in firebase and redux
+
+const newStudent=(studentDetail)=>(
 
     {
         type: "NEW_STUDENT",
         student: {
-            Name,
-            Id:uuid(),
-            Department,
-            Credit,
+            ...studentDetail,
             Time:moment().valueOf()
         }
       
@@ -20,7 +19,22 @@ const newStudent=({Name,Department,Credit})=>(
 
 )
 
+let firebaseSaveStudent = (studentData) => {
+    const {
+        Name,
+        Department,
+        Credit
+    } = studentData
+    
+    const student = { Name, Department, Credit }
+    
+    return (dispatch) => {
 
+        dataBase.ref('Student').push(student).then((ref) => {
+            dispatch(newStudent({Id:ref.key,...student}))
+        })
+    }
+}
 
 const removeStudent = (id,students) => {
 
@@ -83,4 +97,4 @@ const studentReducer = (state = student, action) => {
 }
 
 
-export{studentReducer,newStudent,removeStudent}
+export{studentReducer,firebaseSaveStudent,removeStudent}

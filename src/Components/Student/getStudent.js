@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {newStudent,removeStudent} from '../../state/stateComponent/Student'
+import {firebaseSaveStudent,removeStudent} from '../../state/stateComponent/Student'
 import { Button,TextField,Container,ThemeProvider,createMuiTheme,Box, Typography,Divider} from '@material-ui/core'
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import { green, blue } from '@material-ui/core/colors';
@@ -97,7 +97,7 @@ class Students extends React.Component{
         ))
 
               if (this.state.Name && this.state.Department && this.state.Credit) {
-            this.props.dispatch(newStudent(this.state))
+            this.props.dispatch(firebaseSaveStudent(this.state))
             this.state.Name = ""
             this.state.Department = ""
             this.state.Credit = ""

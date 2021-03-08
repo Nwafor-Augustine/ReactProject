@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import {Chip,Button }from '@material-ui/core'
 import React from 'react'
-import { removeInstructor } from '../../state/stateComponent/Instructor'
+import { firebaseRemoveInstructor } from '../../state/stateComponent/Instructor'
 
 const useStyles = makeStyles({
   table: {
@@ -56,7 +56,7 @@ export default function BasicTable(props) {
        onDelete={
          () => {
              
-           props.store.dispatch(removeInstructor(props.instructor.serialNumber,props.store.mapinstructor))
+           props.store.dispatch(firebaseRemoveInstructor(props.instructor.serialNumber,props.store.mapinstructor))
            
                        
                 }
