@@ -6,7 +6,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PersonIcon from '@material-ui/icons/Person';
 import SchoolIcon from '@material-ui/icons/School';
 import { Box, Grid, makeStyles, createStyles,Hidden, Drawer,Divider,IconButton,List,ListItem,Typography,ListItemIcon} from '@material-ui/core'
-import { green} from '@material-ui/core/colors';
+import {orange} from '@material-ui/core/colors';
 
 let usestlye = makeStyles((theme) =>createStyles({
                  
@@ -27,7 +27,7 @@ let usestlye = makeStyles((theme) =>createStyles({
 
            navLink: {
                    textDecoration: "none",
-                   color: "green",
+                   color: orange[500],
                    fontSize: '1rem',
                    margin:"5% 0% 5% 5%",
                    fontFamily: "Roboto",
@@ -40,7 +40,7 @@ let usestlye = makeStyles((theme) =>createStyles({
         title: {
           
      padding:"6% 0%",
-     color:green[500],
+     color:orange[500],
      textAlign:"center"
   },
          

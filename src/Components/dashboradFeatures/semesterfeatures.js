@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { green } from '@material-ui/core/colors';
+import { orange } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import SchoolIcon from '@material-ui/icons/School';
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) =>
       transform: 'rotate(180deg)',
     },
     avatar: {
-      backgroundColor: green[500],
+      backgroundColor: orange[500],
     },
   }),
 );

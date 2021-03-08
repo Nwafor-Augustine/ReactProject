@@ -14,7 +14,7 @@ import ListItemIcon  from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {CssBaseline,AppBar,Button,useMediaQuery,Grid,Box, Container} from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
-import { green,grey } from '@material-ui/core/colors';
+import { green,grey,orange } from '@material-ui/core/colors';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme, Theme, createStyles} from '@material-ui/core/styles';
 import Instructors from '../Instructor/ListOfIinstructor'
@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme) =>
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
       width: drawerWidth,
+      backgroundColor:orange[500]
     },
 
     content: {
@@ -83,22 +84,26 @@ const useStyles = makeStyles((theme) =>
     },
 
     loginbtn: {
-      color:green[500],
+      color:orange[500],
       float: "right",
+      "&:hover": {
+        color: "white",
+        backgroundColor: orange[500]
+      }
       
     },
     navigationColor: {
       textDecoration:"none",
-      color: green[500],
+      color: "white",
       fontSize: '1rem',
       fontFamily: "Roboto",
       fontWeight: "lighter",
-    }
-     
+    },
+   
  
     
-  }),
-);
+  })
+)
 
 
 
@@ -115,7 +120,7 @@ const useStyles = makeStyles((theme) =>
   };
 
   const drawer = (
-    <div>
+    <div >
      
           <h1 className={classes.logo}>
           JBee
@@ -243,11 +248,13 @@ const useStyles = makeStyles((theme) =>
           <Drawer
             container={container}
             variant="temporary"
+        
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{
               paper: classes.drawerPaper,
+              
             }}
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
@@ -300,7 +307,7 @@ const useStyles = makeStyles((theme) =>
                     <Grid item lg={6} md={6} sm={12} xs={12}>
                        <Semesterfeature />
                     </Grid>
-          <ListOfstudent />
+          <ListOfsemester/>
           
           </Grid>
           

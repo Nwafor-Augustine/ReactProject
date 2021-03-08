@@ -2,7 +2,7 @@
 import React from 'react'
 import {firebaseSaveInstructor } from '../../state/stateComponent/Instructor'
 import { Button, Container, TextField, Avatar, Box, Typography,ThemeProvider,createMuiTheme,Divider } from '@material-ui/core';
-import { green,blue,grey} from '@material-ui/core/colors';
+import { green,blue,grey,orange} from '@material-ui/core/colors';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import HomeloadingScreen from '../alertModal'
 import { connect } from 'react-redux'
@@ -10,8 +10,8 @@ import { connect } from 'react-redux'
 let theme = createMuiTheme({
     palette: {
         primary: {
-            main: green[500],
-            textcolor:"white"
+            main: orange[500],
+           
             
         },
         secondary:{
@@ -144,7 +144,7 @@ let theme = createMuiTheme({
             
                  <Container >
                        
-                 <Box textAlign={"right"}  height={40}  mt={12}  mb={5} color="green"  >
+                 <Box textAlign={"right"}  height={40}  mt={12}  mb={5} color={orange[500]}  >
                         <Typography variant={'body1'} >
                         INSTRUCTOR
                         </Typography>

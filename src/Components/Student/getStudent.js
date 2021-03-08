@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import {firebaseSaveStudent,removeStudent} from '../../state/stateComponent/Student'
 import { Button,TextField,Container,ThemeProvider,createMuiTheme,Box, Typography,Divider} from '@material-ui/core'
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import { green, blue } from '@material-ui/core/colors';
+import { green, blue, orange } from '@material-ui/core/colors';
 import HomeloadingScreen from '../alertModal'
 
 let theme = createMuiTheme({
     palette: {
         primary: {
-            main: green[500],
+            main: orange[500],
             
         },
         secondary:{
@@ -132,7 +132,7 @@ closeModalCancel() {
             <ThemeProvider theme={theme}>
              <Container >
                            
-                 <Box textAlign={"right"}  height={40}  mt={8}  mb={5} color="green"  >
+                 <Box textAlign={"right"}  height={40}  mt={8}  mb={5} color={orange[500]} >
                         <Typography variant={'body1'} >
                          STUDENT
                         </Typography>
@@ -141,7 +141,7 @@ closeModalCancel() {
                     
                 <label>
                     Name:
-                    <TextField type="text"  placeholder="Department" variant="outlined" fullWidth
+                    <TextField type="text"  placeholder="Name" variant="outlined" fullWidth
                         margin="normal"
                         color="primary"
                           onChange={this.nameOnChange} 
@@ -171,7 +171,7 @@ closeModalCancel() {
                   <HomeloadingScreen openModal={this.state.action} closeModalComfirm={this.closeModalComfirm} closeModalCancel={this.closeModalCancel} title={"Student"} message={"Comfirm the candidate as Student"}/>
                     
                     <Box my={5} >
-                       <Button variant="contained" color="secondary" startIcon={<PersonAddIcon />} onClick={this.addNewstudent}>Add Student</Button>
+                       <Button variant="contained" color="primary" startIcon={<PersonAddIcon />} onClick={this.addNewstudent}>Add Student</Button>
                     </Box>
                   
                     

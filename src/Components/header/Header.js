@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import {IconButton,Fade} from '@material-ui/core';
 import {Container,Grid,Box, Hidden} from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
+import { green,orange } from '@material-ui/core/colors';
 import {startLogoutAccount} from '../firebase/actions'
 import {connect} from 'react-redux'
 
@@ -45,13 +45,13 @@ const useStyles = makeStyles((theme) => ({
     
    login:{
    
-     color: green[500],
+     color: orange[500],
      float: "right",
      fontSize: "0.9rem",
      fontWeight:600,
      "&:hover": {
                 color: "white",
-                backgroundColor:green[500]
+                backgroundColor:orange[500]
        }
     
     

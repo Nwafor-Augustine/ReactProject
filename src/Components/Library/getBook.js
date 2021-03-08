@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { ListOfBooks } from './ListBooks'
 import { fireBaseDataSaved } from '../../state/stateComponent/Library'
 import { TextField, Container, Button, Box, Typography,ThemeProvider,createMuiTheme,Divider } from '@material-ui/core'
-import { green,blue } from '@material-ui/core/colors';
+import { green,blue, orange } from '@material-ui/core/colors';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import HomeloadingScreen from '../alertModal'
 import AddIcon from '@material-ui/icons/Add';
@@ -11,7 +11,7 @@ import AddIcon from '@material-ui/icons/Add';
 let theme = createMuiTheme({
     palette: {
         primary: {
-            main: green[500],
+            main: orange[500],
             textcolor:"white"
             
         },
@@ -130,7 +130,7 @@ closeModalComfirm() {
               <Container>
 
                           
-                 <Box textAlign={"right"}  height={40}  mt={10}  mb={5} color="green"  >
+                 <Box textAlign={"right"}  height={40}  mt={10}  mb={5} color={orange[500]}  >
                         <Typography variant={'body1'} >
                          BOOK
                         </Typography>
@@ -172,7 +172,7 @@ closeModalComfirm() {
 
                     
                     <Box my={5}>
-                        <Button variant="contained" color="secondary" startIcon={<AddIcon />} onClick={this.addTextBook}>Add Book
+                        <Button variant="contained" color="primary" startIcon={<AddIcon />} onClick={this.addTextBook}>Add Book
                      </Button>
                     </Box>
                     

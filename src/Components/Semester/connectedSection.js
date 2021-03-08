@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { newSemester} from "../../state/stateComponent/Semester"
+import { firebaseSavingSemester} from "../../state/stateComponent/Semester"
 import {Box,TextField,Typography,Container,Button,ThemeProvider,createMuiTheme,Divider} from '@material-ui/core'
-import { green,blue } from '@material-ui/core/colors'
+import { green,blue ,orange} from '@material-ui/core/colors'
 import AddIcon from '@material-ui/icons/Add';
 import HomeloadingScreen from '../alertModal'
 
@@ -11,8 +11,8 @@ import HomeloadingScreen from '../alertModal'
 let theme = createMuiTheme({
     palette: {
         primary: {
-            main: green[500],
-            textcolor:"white"
+            main: orange[500],
+            
             
         },
         secondary:{
@@ -61,7 +61,7 @@ class Semester extends React.Component {
         ))
 
               if (this.state.period && this.state.year) {
-      this.props.dispatch(newSemester(this.state))
+      this.props.dispatch(firebaseSavingSemester(this.state))
       this.state.period = ""
       this.state.year = ""
      
@@ -109,7 +109,7 @@ class Semester extends React.Component {
            <Box mt={12}>
                <Container>
                     
-                 <Box textAlign={"right"}  height={40}  mt={13}  mb={5} color="green"  >
+                 <Box textAlign={"right"}  height={40}  mt={13}  mb={5} color={orange[500]} >
                         <Typography variant={'body1'} >
                         SEMESTER
                         </Typography>
@@ -143,7 +143,7 @@ class Semester extends React.Component {
                     
             
              <Box my={5}>
-                        <Button variant="contained" color="secondary" startIcon={<AddIcon />} onClick={this.addSemester}>Add Semester
+                        <Button variant="contained" color="primary" startIcon={<AddIcon />} onClick={this.addSemester}>Add Semester
                         </Button>
                     
                     </Box> 

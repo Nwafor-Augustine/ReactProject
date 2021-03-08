@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import {Chip,Button }from '@material-ui/core'
 import React from 'react'
-import {removeSemester} from '../../state/stateComponent/Semester';
+import {firebaseRemovSemester} from '../../state/stateComponent/Semester';
 
 
 
@@ -58,7 +58,7 @@ export default function BasicTable(props) {
        onDelete={
            () => {
                            
-                            props.store.dispatch(removeSemester(props.semester.id, props.store.mapsemester))
+                            props.store.dispatch(firebaseRemovSemester(props.semester.id, props.store.mapsemester))
                        
              
              
