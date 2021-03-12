@@ -20,7 +20,7 @@ import { makeStyles, useTheme, Theme, createStyles} from '@material-ui/core/styl
 import Instructors from '../Instructor/ListOfIinstructor'
 import  ListOfBooks from '../Library/ListBooks'
 import ListOfsemester from '../Semester/ListOfSemester'
-import ListOfstudent from '../Student/ListOfStudent'
+
 import Studentfeature from '../dashboradFeatures/studentfeatures'
 import Instructorfeature from '../dashboradFeatures/instructorfeature'
 import Libraryfeature from '../dashboradFeatures/library feactures'
@@ -307,7 +307,7 @@ const useStyles = makeStyles((theme) =>
                     <Grid item lg={6} md={6} sm={12} xs={12}>
                        <Semesterfeature />
                     </Grid>
-          <ListOfsemester/>
+         
           
           </Grid>
           

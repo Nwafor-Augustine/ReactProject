@@ -15,8 +15,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import PersonIcon from '@material-ui/icons/Person';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Pop from './dashboardPopup'
-import Instructors from '../Instructor/ListOfIinstructor'
-
+import {history} from '../../Routing/App'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -54,6 +53,9 @@ export default function Instructorfeature() {
     setExpanded(true);
   };
 
+  const renderData = () => {
+     history.push("/datas")
+  }
   return (
         <Card className={classes.root}>
       <CardHeader
@@ -63,8 +65,9 @@ export default function Instructorfeature() {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings" onClick={popupInstructors}>
-            <MoreVertIcon  />
+          <IconButton aria-label="settings" onClick={renderData} >
+            <MoreVertIcon></MoreVertIcon>
+              
           </IconButton>
         }
         title="Instructors"

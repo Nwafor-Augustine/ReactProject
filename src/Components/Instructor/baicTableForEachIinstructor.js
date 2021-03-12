@@ -9,12 +9,17 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import {Chip,Button }from '@material-ui/core'
 import React from 'react'
+import { orange } from '@material-ui/core/colors'
 import { firebaseRemoveInstructor } from '../../state/stateComponent/Instructor'
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  title: {
+    backgroundColor: orange[500],
+    height:50
+  }
 });
 
 
@@ -23,6 +28,7 @@ export default function BasicTable(props) {
 
     return (
       <Paper elevation={6} >
+        <header className={classes.title}></header>
        <TableContainer >
       <Table className={classes.table} aria-label="simple table">
         <TableHead>

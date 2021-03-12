@@ -7,7 +7,8 @@ import ErorPage from '../Components/ErorPage'
 import Library from '../Components/Library/librarypage'
 import Editpage from '../Components/Instructor/editInstructor'
 import DashboradPage from '../Components/dashboard/dashboardpage'
-import PrivateRoute  from './privateRoute'
+import PrivateRoute from './privateRoute'
+import DataDetails from '../Components/showData'
 export let history = require("history").createBrowserHistory(History)
 
 
@@ -29,7 +30,8 @@ const App = () => {
                     <PrivateRoute  path="/instructor" component={getInstructor} exact={true}/>
                     <PrivateRoute  path="/section" component={Section} />
                     <PrivateRoute  path="/library" component={Library} />
-                   
+                    <Route  path="/datas" component={DataDetails} exact={true}/>
+                    
                     <Route  path="/show" component={Editpage} exact={true}/>
                     
                     <Route  component={ErorPage} />

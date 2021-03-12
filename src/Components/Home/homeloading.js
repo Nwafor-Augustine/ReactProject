@@ -10,7 +10,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors'
+import { green,orange } from '@material-ui/core/colors'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) =>
       color: '#fff',
     },
     header: {
-      backgroundColor: green[500],
+      backgroundColor: orange[500],
       height: "50px",
       margin:"10px 10px 0px 10px"
     },

@@ -14,7 +14,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import PersonIcon from '@material-ui/icons/Person';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import {history} from '../../Routing/App'
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
@@ -51,6 +51,10 @@ export default function Studentfeature() {
     setExpanded(!expanded);
   };
 
+  const renderData = ()=>{
+     history.push("/datas")
+  }
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -60,7 +64,7 @@ export default function Studentfeature() {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
+          <IconButton aria-label="settings" onClick={renderData}>
             <MoreVertIcon />
           </IconButton>
         }
