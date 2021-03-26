@@ -1,4 +1,4 @@
-import firebase,{provider} from './firebase'
+import firebase,{provider,dataBase} from './firebase'
 import Instructors from '../Instructor/ListOfIinstructor'
 import ListOfstudent from '../Student/ListOfStudent'
 import React from 'react'
@@ -15,6 +15,21 @@ export let startLogoutAccount = () => {
         return firebase.auth().signOut()
     }
 }
+
+
+export const loadAndFetchingDataOnVisit = () => {
+    return () => {
+        return dataBase.ref("Student").once('value').then((snapshot) => {
+      let students = []
+    snapshot.forEach((childsnapshot) => {
+        students.push(childsnapshot.val())
+        console.log(students)
+      })
+      
+    })
+    }
+}
+
 
 
 export const dataInstructorDatasFromFirebase = () => {
@@ -35,6 +50,7 @@ export const dataInstructorDatasFromFirebase = () => {
 
 
 export const dataStudentDatasFromFirebase = () => {
+
     renderCheck = true
     if (renderCheck) {
         renderCheck = false

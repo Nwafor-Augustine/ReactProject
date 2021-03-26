@@ -6,7 +6,8 @@ import{instructorReducer}from './stateComponent/Instructor'
 import { bookReducer } from './stateComponent/Library'
 import { filterByReducer } from './stateComponent/Filterstudent'
 import thunk from 'redux-thunk'
-import {userStatusReducer} from './stateComponent/firebaseState'
+import { userStatusReducer } from './stateComponent/firebaseState'
+
  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export let store = createStore(
