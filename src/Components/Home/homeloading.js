@@ -11,6 +11,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { green,orange } from '@material-ui/core/colors'
+import { connect } from 'react-redux'
+import { startLoginAccount } from '../firebase/actions'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -40,7 +42,7 @@ const useStyles = makeStyles((theme) =>
 
 
 
- const   ResponsiveDialog = () =>{
+ const   ResponsiveDialog = (props) =>{
   const [open, setOpen] = React.useState(true);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -50,7 +52,8 @@ const useStyles = makeStyles((theme) =>
     setOpen(true);
   };
 
-  const handleClose = () => {
+   const handleClose = () => {
+    props.logIn()
     setOpen(false);
   };
 
@@ -69,9 +72,7 @@ const useStyles = makeStyles((theme) =>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button  onClick={handleClose} className={classes.button}>
-            Login
-          </Button>
+         
           <Button onClick={handleClose} className={classes.button} >
             Signup
           </Button>
@@ -81,4 +82,8 @@ const useStyles = makeStyles((theme) =>
   );
 }
 
-export default   ResponsiveDialog 
+export default  connect(undefined,(dispatch)=>{
+  return {
+    logIn: ()=> dispatch(startLoginAccount())
+  }
+})(ResponsiveDialog)
