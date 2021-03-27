@@ -55,9 +55,10 @@ module.exports = {
    
 devServer: {
     contentBase: path.join(__dirname, 'public'),
-    historyApiFallback: true,
+    
      watchOptions: {
         poll: true
     }
-  }
+}
+  
 }

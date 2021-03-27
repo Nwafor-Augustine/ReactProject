@@ -10,7 +10,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { green,orange } from '@material-ui/core/colors'
+import { green,orange,yellow } from '@material-ui/core/colors'
 import { connect } from 'react-redux'
 import { startLoginAccount } from '../firebase/actions'
 
@@ -30,7 +30,11 @@ const useStyles = makeStyles((theme) =>
     },
 
     button: {
-      color:green[500],
+      color:"white",
+      backgroundColor: orange[500],
+      "&:hover": {
+         backgroundColor: orange[700]
+      }
     }
   }),
 );

@@ -8,6 +8,7 @@ import {Provider} from 'react-redux'
 import { store } from './state/Store'
 import firebase from './Components/firebase/firebase'
 import './styles/style.css'
+
 import { history } from './Routing/App'
 import {logInState,logOutState} from './state/stateComponent/firebaseState'
 import {loadAndFetchingDataOnVisit} from './Components/firebase/actions'

@@ -30,7 +30,7 @@ let usestyle = makeStyles(theme =>({
              
          paddingLeft: "0%",
          fontSize: "2.5rem",
-         marginTop: "35vh",
+         marginTop: "20vh",
        
            
         },
@@ -160,7 +160,7 @@ let usestyle = makeStyles(theme =>({
        
     },
     registerbtn: {
-        marginTop: "30vh",
+        marginTop: "20vh",
         textAlign: "center",
         [theme.breakpoints.down("sm")]:{
                marginTop: "10vh",
@@ -178,7 +178,7 @@ let usestyle = makeStyles(theme =>({
         padding: 8,
             "&:hover": {
                 color: "white",
-                backgroundColor:green[500]
+                backgroundColor:orange[500]
        }
         
     },
@@ -250,16 +250,16 @@ const Main = (props) => {
                             </Grid>
                           <Divider/>
                         </Grid>
-                            <Grid item lg={9}>
+                            <Grid item lg={12}>
                                 <Typography  variant="h3"  className={classes.intro}>
-                                    My React School Management System <br></br>
-                                    With Firebase Authentication And Database
+                                    School Management System <br></br>
+                                    With Redux,Firebase Authentication And Database
                                 <IconButton>
                                 
                                 </IconButton>
                                 </Typography>
                             </Grid>
-                        <Grid item lg={3}></Grid>
+                        
                         <Grid item lg={12} md={12} sm={12} xs={12} className={classes.registerbtn}>
                             <ButtonGroup size="small" variant="outlined">
                             <Button  className={classes.registerInnerText} onClick={props.logIn}>Apply
