@@ -56,9 +56,7 @@ module.exports = {
 devServer: {
     contentBase: path.join(__dirname, 'public'),
     
-     watchOptions: {
-        poll: true
-    }
+     
 }
   
 }
