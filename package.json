@@ -7,7 +7,7 @@
     "build": "webpack",
     "dev": "webpack serve --env development --mode development ",
     "start":"node Server/server.js",
-    "heroku-postbuild":"yarn run dev"
+    "heroku-postbuild":"yarn run build"
   },
   "author": "Austine",
   "license": "ISC",
