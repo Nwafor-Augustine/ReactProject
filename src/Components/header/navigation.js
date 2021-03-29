@@ -63,8 +63,9 @@ export let Nav = (props) => {
         </Typography>  
      
          
-      <Divider />
-     
+                        <Divider />
+                        
+     <Router>
        <List component="nav" aria-label="dashboard navigation">
                         
         <ListItem button>
@@ -113,10 +114,13 @@ export let Nav = (props) => {
         </ListItem>
              <Divider />                       
       </List>
+                        
+     </Router>
+     
    
     </div>  
         )
-        return <Router >
+        return <React.Fragment>
                 
                 
                 
@@ -177,7 +181,7 @@ export let Nav = (props) => {
 
               
                         
-        </Router>
+        </React.Fragment>
                       
     
 }
